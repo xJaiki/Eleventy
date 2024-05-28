@@ -1,0 +1,13 @@
+---
+title: Developer Guide
+layout: layout.njk
+---
+
+# Benvenuti nella Developer Guide
+
+{% for chapter in collections.chapters %}
+    <article>
+        <h2 id="{{ chapter.data.title | slug }}">{{ chapter.data.title }}</h2>
+        {{ chapter.templateContent | safe }}
+    </article>
+{% endfor %}

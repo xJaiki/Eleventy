@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bibbia junior dev</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(to right, #222831, #31363F);
+                color: #333;
+            }
+            pre {
+                font-family: 'Roboto Mono', monospace !important;
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                padding: 10px;
+                overflow-x: auto;
+                color: #333;
+            }
+            h1 {
+                font-weight: 700;
+                text-decoration: underline dotted;
+            }
+            .btn-primary{
+                background-color: #222831;
+                border-color: #222831;
+            }
+            .btn-primary:hover{
+                background-color: #393e46;
+                border-color: #393e46;
+            }
+            .btn-primary:focus{
+                background-color: #393e46;
+                border-color: #393e46;
+            }
+            .btn-primary:active{
+                background-color: #17191c !important;
+                border-color: #17191c !important;
+            }
+            .navbar {
+                backdrop-filter: blur(10px);
+                background: rgba(0, 0, 0, 0.7) !important;
+            }
+            .card {
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.8);
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .card-header,
+            .card-body {
+                border-radius: 15px;
+            }
+            .list-group-item {
+                background: transparent;
+                border: none;
+                color: #007bff;
+            }
+            .list-group-item:hover {
+                color: #0056b3;
+                cursor: pointer;
+            }
+            .search-bar {
+                margin-bottom: 20px;
+            }
+            .highlight {
+                background: yellow;
+                font-weight: bold;
+            }
+            .btn-scroll {
+                background: #222831;
+                color: #fff;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Bibbia Junior developer</a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" aria-current="page" id="infoButton">Info</button>
+                </div>
+            </nav>
+        </header>
+        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModalLabel">Informazioni</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Questa guida e' stata creata con <a href="https://www.11ty.dev/">Eleventy</a> e <a
+                                href="https://getbootstrap.com/">Bootstrap</a>.</p>
+                        <p>La guida e' in continuo aggiornamento e miglioramento</p>
+                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla <a href="https://github.com/xjaiki">repository</a> , aggiungendo un capitolo o
+                            migliorando uno esistente.</p>
+                        <p>Trovi tutte le informazioni sul readme del progetto!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="easterEggBtn">Non cliccarmi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button
+            id="scrollTopBtn"
+            class="btn-scroll"
+            style="display: none; position: fixed; bottom: 20px; right: 20px; z-index:99">Top</button>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="back-end-base-knowledge">BACK-END BASE KNOWLEDGE</h2>
+                                <div class="card-text">
+                                    <h2>Cos'è lo Sviluppo Web?</h2>
+<p>Lo sviluppo web è il processo di creazione e manutenzione di siti web. Comprende diversi aspetti come la progettazione web, lo sviluppo lato client (front-end), lo sviluppo lato server (back-end) e la gestione dei database.</p>
+<h2>HTML (HyperText Markup Language)</h2>
+<p>HTML è il linguaggio standard per la creazione di pagine web. Esso definisce la struttura del contenuto web attraverso una serie di elementi e tag.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Titolo della Pagina&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Benvenuto nel Sito&lt;/h1&gt;
+    &lt;p&gt;Questo è un paragrafo di esempio.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>CSS (Cascading Style Sheets)</h2>
+<p>CSS è utilizzato per descrivere l'aspetto e la formattazione di un documento scritto in HTML. Permette di separare il contenuto dalla presentazione.</p>
+<pre><code class="language-css">body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+</code></pre>
+<h2>JavaScript</h2>
+<p>JavaScript è un linguaggio di programmazione utilizzato per creare contenuti web dinamici e interattivi. Viene eseguito sul lato client, il che significa che il codice viene eseguito direttamente nel browser dell'utente.</p>
+<pre><code class="language-javascript">document.addEventListener('DOMContentLoaded', (event) =&gt; {
+    document.querySelector('h1').textContent = 'Benvenuto nel Sito Dinamico';
+});
+</code></pre>
+<h2>HTTP (HyperText Transfer Protocol)</h2>
+<p>HTTP è il protocollo utilizzato per trasferire dati sul web. È la base della comunicazione tra client (browser) e server. Le richieste HTTP sono di solito fatte con metodi come GET, POST, PUT e DELETE.</p>
+<h3>Metodi HTTP</h3>
+<ul>
+<li><strong>GET</strong>: Richiede dati da un server (es. scaricare una pagina web).</li>
+<li><strong>POST</strong>: Invia dati al server (es. inviare un modulo).</li>
+<li><strong>PUT</strong>: Aggiorna dati esistenti sul server.</li>
+<li><strong>DELETE</strong>: Elimina dati dal server.</li>
+</ul>
+<pre><code class="language-http">GET /index.html HTTP/1.1
+Host: www.example.com
+
+POST /form HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+name=John&amp;age=30&amp;city=New+York
+</code></pre>
+<h2>JSON (JavaScript Object Notation)</h2>
+<p>JSON è un formato di interscambio dati leggero e facile da leggere e scrivere per gli esseri umani e facile da analizzare e generare per le macchine. È spesso usato per scambiare dati tra client e server.</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;John&quot;,
+    &quot;age&quot;: 30,
+    &quot;city&quot;: &quot;New York&quot;
+}
+</code></pre>
+<h2>Backend Development</h2>
+<p>Il backend è la parte del sito web che non è visibile all'utente. Gestisce la logica dell'applicazione, l'autenticazione degli utenti, l'interazione con il database e le chiamate API. I linguaggi di programmazione comuni per il backend includono PHP, Python, Ruby, Java e Node.js.</p>
+<h3>Database</h3>
+<p>I database sono utilizzati per memorizzare dati in modo strutturato. I tipi di database includono:</p>
+<ul>
+<li><strong>SQL</strong>: Database relazionali come MySQL, PostgreSQL e SQLite.</li>
+<li><strong>NoSQL</strong>: Database non relazionali come MongoDB e Redis.</li>
+</ul>
+<h3>API (Application Programming Interface)</h3>
+<p>Le API permettono ai vari componenti del software di comunicare tra loro. Le API web usano tipicamente HTTP per le richieste e le risposte.</p>
+<pre><code class="language-api">GET /api/users HTTP/1.1
+Host: api.example.com
+
+{
+    &quot;users&quot;: [
+        {&quot;id&quot;: 1, &quot;name&quot;: &quot;John Doe&quot;},
+        {&quot;id&quot;: 2, &quot;name&quot;: &quot;Jane Doe&quot;}
+    ]
+}
+</code></pre>
+<h2>REST (REpresentational State Transfer)</h2>
+<p>REST è uno stile architettonico che fornisce standard tra sistemi informatici sul web, facilitando la comunicazione tra sistemi. È stateless, il che significa che il server non deve sapere in che stato si trova il client e viceversa. Ciò consente modifiche indipendenti sul lato client e server.</p>
+<h3>Componenti di una Richiesta REST</h3>
+<ul>
+<li><strong>Verbo HTTP</strong>: Definisce il tipo di operazione da eseguire.
+<ul>
+<li><strong>GET</strong>: Recupera una risorsa specifica.</li>
+<li><strong>POST</strong>: Crea una nuova risorsa.</li>
+<li><strong>PUT</strong>: Aggiorna una risorsa specifica.</li>
+<li><strong>DELETE</strong>: Rimuove una risorsa specifica.</li>
+</ul>
+</li>
+<li><strong>Header</strong>: Consente al client di trasmettere informazioni sulla richiesta.</li>
+<li><strong>Percorso</strong>: Identifica la risorsa su cui deve essere eseguita l'operazione.</li>
+<li><strong>Corpo del messaggio</strong> (opzionale): Contiene dati da inviare al server.</li>
+</ul>
+<h3>Tipi di Contenuto</h3>
+<p>Nell'intestazione, il client invia il tipo di contenuto che è in grado di ricevere dal server, chiamato campo Accept. Le opzioni per i tipi di contenuto sono le MIME (Multipurpose Internet Mail Extensions).</p>
+<h3>Percorso</h3>
+<p>Una richiesta deve contenere il percorso di una risorsa su cui deve essere eseguita l'operazione. Convenzionalmente, la prima parte del percorso deve essere la forma plurale della risorsa.</p>
+<pre><code class="language-rest">GET /customers/223/orders/12 HTTP/1.1
+Host: www.example.com
+Accept: application/json
+</code></pre>
+<h3>Risposta</h3>
+<p>Quando il server invia un carico di dati al client, deve includere un tipo di contenuto nell'intestazione della risposta. Il campo dell'intestazione <code>content-type</code> segnala al client il tipo di dati che sta inviando nel corpo della risposta.</p>
+<h3>Codici di Risposta</h3>
+<p>Le risposte del server contengono codici di stato per avvisare il client di informazioni sul successo (o meno) dell'operazione.</p>
+<ul>
+<li><strong>200 (OK)</strong>: La richiesta è stata elaborata con successo.</li>
+<li><strong>400 (BAD REQUEST)</strong>: La richiesta non può essere elaborata a causa di una sintassi errata.</li>
+<li><strong>404 (NOT FOUND)</strong>: La risorsa non può essere trovata in questo momento.</li>
+<li><strong>500 (INTERNAL SERVER ERROR)</strong>: Risposta generica per un guasto inatteso.</li>
+</ul>
+<h2>Differenza tra REST e SOAP</h2>
+<h3>REST</h3>
+<ul>
+<li>È uno stile architetturale.</li>
+<li>Richiede il protocollo HTTP.</li>
+<li>Supporta molti formati come JSON, XML, HTML, CSV.</li>
+<li>Ha una documentazione facile da capire.</li>
+<li>È efficiente e veloce.</li>
+<li>Meno sicuro di SOAP.</li>
+</ul>
+<h3>SOAP</h3>
+<ul>
+<li>Funziona solo con XML.</li>
+<li>Può funzionare con protocolli HTTP, SMTP (Simple Mail Transfer Protocol) e FTP (File Transfer Protocol).</li>
+<li>Documentazione più complessa.</li>
+<li>Più lento di REST ma più sicuro.</li>
+<li>È indipendente dal linguaggio di programmazione.</li>
+</ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="java">JAVA</h2>
+                                <div class="card-text">
+                                    <h2>Cos'è Java</h2>
+<p>Java è un linguaggio di programmazione Object-Oriented. Le sue caratteristiche principali sono la portabilità e la robustezza. La portabilità si riferisce all'indipendenza del sistema operativo, resa possibile dalla JVM. La robustezza implica una maggiore capacità di prevenire errori.</p>
+<h2>JVM (Java Virtual Machine)</h2>
+<p>La JVM è un software che esegue i programmi Java. Converte il codice Java in linguaggio macchina e poi lo esegue. La JVM gestisce anche la memoria e la sicurezza dei programmi Java.</p>
+<h2>JRE (Java Runtime Environment)</h2>
+<p>La JRE è un ambiente di esecuzione per i programmi Java. Contiene la JVM, oltre ad altre librerie e strumenti necessari per eseguire i programmi Java.</p>
+<h2>JDK (Java Development Kit)</h2>
+<p>Il JDK è un kit di sviluppo per Java. Contiene la JRE, un compilatore e altri strumenti necessari per sviluppare programmi Java.</p>
+<h2>Garbage Collection</h2>
+<p>Il Garbage Collection (GC) è un meccanismo che libera automaticamente la memoria inutilizzata. Quando un programma Java crea un oggetto, il GC lo memorizza nella memoria heap e lo elimina quando non è più necessario.</p>
+<h2>Classi e Oggetti</h2>
+<p>Una classe è un modello che può essere utilizzato per creare oggetti. Un oggetto è un'entità che ha stato e comportamento. Lo stato di un oggetto è rappresentato dai suoi attributi e il comportamento dai suoi metodi.</p>
+<h3>Costruttore</h3>
+<p>Un costruttore è un metodo speciale che viene chiamato quando viene creato un oggetto. Viene utilizzato per inizializzare gli attributi dell'oggetto e per eseguire altre attività iniziali.</p>
+<pre><code class="language-java">Persona p = new Persona(&quot;Mario&quot;, &quot;Di Marino&quot;); // Costruttore parametrizzato
+Persona p = new Persona(); // Costruttore non parametrizzato
+</code></pre>
+<h2>Modificatori</h2>
+<p>I modificatori forniscono al compilatore informazioni sulla natura del codice.</p>
+<h3>Modificatori di Attributi/Metodi/Costruttori</h3>
+<ul>
+<li><strong>public</strong>: Il codice è accessibile a tutte le classi.</li>
+<li><strong>private</strong>: Il codice è accessibile solo all’interno della stessa classe.</li>
+<li><strong>protected</strong>: Il codice è accessibile alle classi e alle sottoclassi nello stesso package.</li>
+<li><strong>default</strong>: Il codice è accessibile a tutte le classi nello stesso package.</li>
+</ul>
+<h3>Modificatori di Classi</h3>
+<ul>
+<li><strong>final</strong>: La classe non può essere ereditata da altre classi.</li>
+<li><strong>abstract</strong>: La classe non può essere istanziata direttamente.</li>
+</ul>
+<h3>Modificatori di Attributi/Metodi</h3>
+<ul>
+<li><strong>final</strong>: Non può essere sovrascritto o modificato nelle sottoclassi.</li>
+<li><strong>static</strong>: Appartiene alla classe, non all'oggetto.</li>
+</ul>
+<pre><code class="language-java">public class Math { 
+   static int add(int a, int b) {
+      return a + b; 
+    } 
+}
+System.out.println(Math.add(1, 2));
+</code></pre>
+<h2>Tipi Primitivi</h2>
+<p>Java fornisce 8 tipi primitivi: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>boolean</code>, <code>char</code>.</p>
+<h2>Wrapper</h2>
+<p>I tipi wrapper contengono un valore primitivo, trasformandolo in un oggetto. Esempi: <code>Integer</code>, <code>Double</code>, <code>Character</code>.</p>
+<h2>Casting</h2>
+<p>Il casting consiste nel convertire un tipo di dato in un altro tipo.</p>
+<pre><code class="language-java">int myInt = 9;
+double myDouble = myInt; // Casting automatico
+double myDouble = 9.78;
+int myInt = (int) myDouble; // Casting manuale
+</code></pre>
+<h2>Concatenamento di Stringhe</h2>
+<p>Il concatenamento di stringhe unisce due o più stringhe in una singola stringa.</p>
+<pre><code class="language-java">String str1 = &quot;Hello&quot;;
+String str2 = &quot;World&quot;;
+String str3 = str1 + str2;
+System.out.println(str3);
+
+String str1 = &quot;Hello&quot;;
+int number = 10;
+String str3 = String.format(&quot;Hello, %d!&quot;, number);
+System.out.println(str3);
+</code></pre>
+<h2>Ereditarietà</h2>
+<p>L'ereditarietà consente alle classi figlie di ereditare i metodi e gli attributi delle classi madri.</p>
+<h2>Polimorfismo</h2>
+<p>Il polimorfismo è la capacità di un'espressione di assumere diversi significati in base ai tipi di dati.</p>
+<h3>Override</h3>
+<p>L'override consente a una classe figlia di sovrascrivere un metodo di una classe madre.</p>
+<pre><code class="language-java">class Animal {
+  public void print() {
+    System.out.println(&quot;Animal&quot;);
+  }
+}
+
+class Dog extends Animal {
+  @Override
+  public void print() {
+    System.out.println(&quot;Dog&quot;);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Animal animal = new Dog();
+    animal.print(); // Dog
+  }
+}
+</code></pre>
+<h3>Overload</h3>
+<p>L'overload consente a una classe di avere più metodi con lo stesso nome ma con diversi parametri.</p>
+<pre><code class="language-java">class Math {
+  public int add(int a, int b) {
+    return a + b;
+  }
+
+  public int add(int a, int b, int c) {
+    return a + b + c;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    System.out.println(new Math().add(1, 2)); // 3
+    System.out.println(new Math().add(1, 2, 3)); // 6
+  }
+}
+</code></pre>
+<h2>Incapsulamento</h2>
+<p>L'incapsulamento nasconde i dettagli implementativi di un oggetto agli utenti dell'oggetto utilizzando modificatori di accesso.</p>
+<pre><code class="language-java">public class Person {
+  private String name;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String newName) {
+    this.name = newName;
+  }
+}
+</code></pre>
+<h2>Lambda</h2>
+<p>Le lambda expressions sono funzioni anonime che possono essere utilizzate per scrivere codice più chiaro e meno verboso.</p>
+<pre><code class="language-java">(int x, int y) -&gt; x + y
+s -&gt; s.length()
+</code></pre>
+<h2>Astrazione</h2>
+<p>L'astrazione nasconde i dettagli implementativi di un oggetto e mostra solo le informazioni essenziali.</p>
+<h3>Classe Astratta</h3>
+<p>Una classe astratta non può essere utilizzata per creare oggetti e può contenere metodi astratti.</p>
+<pre><code class="language-java">abstract class Animal {
+  public abstract void animalSound();
+  public void sleep() {
+    System.out.println(&quot;Zzz&quot;);
+  }
+}
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println(&quot;The pig says: wee wee&quot;);
+  }
+}
+</code></pre>
+<h3>Interfaccia</h3>
+<p>Un'interfaccia contiene solo metodi astratti e costanti.</p>
+<pre><code class="language-java">interface Animal {
+  public void animalSound();
+}
+
+class Pig implements Animal {
+  public void animalSound() {
+    System.out.println(&quot;The pig says: wee wee&quot;);
+  }
+}
+</code></pre>
+<h2>Eccezioni</h2>
+<p>Le eccezioni sono eventi che interrompono il normale flusso di esecuzione del codice e vengono gestite con i blocchi try-catch.</p>
+<pre><code class="language-java">try {
+  int[] myNumbers = {1, 2, 3};
+  System.out.println(myNumbers[10]);
+} catch (Exception e) {
+  System.out.println(&quot;Something went wrong.&quot;);
+}
+</code></pre>
+<h2>Collezioni</h2>
+<p>Le collezioni sono un insieme di classi e interfacce per archiviare e manipolare insiemi di oggetti.</p>
+<h3>Tipi di Collezioni</h3>
+<ul>
+<li><strong>List</strong>: Collezione ordinata di oggetti.</li>
+<li><strong>Set</strong>: Collezione di oggetti unici.</li>
+<li><strong>Map</strong>: Collezione di coppie chiave-valore.</li>
+<li><strong>Array</strong>: Struttura dati lineare.</li>
+<li><strong>ArrayList</strong>: Struttura dati dinamica.</li>
+<li><strong>HashMap</strong>: Collezione di coppie chiave-valore.</li>
+</ul>
+<h2>Java I/O</h2>
+<p>La classe Java I/O fornisce metodi per leggere e scrivere dati da e verso file, stream e altre risorse.</p>
+<h2>Java Multithreading</h2>
+<p>Il multithreading consente l'esecuzione di più thread contemporaneamente.</p>
+<h2>Generics</h2>
+<p>I generics permettono di scrivere codice indipendente dal tipo di dato.</p>
+<pre><code class="language-java">public class MyList&lt;T&gt; {
+  private List&lt;T&gt; list = new ArrayList&lt;&gt;();
+
+  public void add(T object) {
+    list.add(object);
+  }
+}
+</code></pre>
+<h2>Annotazioni</h2>
+<p>Le annotazioni aggiungono informazioni aggiuntive a classi, metodi, variabili e altri elementi di codice.</p>
+<h2>Singleton</h2>
+<p>Un singleton garantisce che di una determinata classe venga creata una sola istanza.</p>
+<pre><code class="language-java">public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+</code></pre>
+<h2>JSP (JavaServer Pages)</h2>
+<p>Le JSP consentono di includere codice Java all'interno di pagine HTML per creare pagine web dinamiche.</p>
+<pre><code class="language-java">&lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Pagina JSP&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Questo è un esempio di pagina JSP.&lt;/p&gt;
+    &lt;%
+    System.out.println(&quot;Hello, world!&quot;);
+    %&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>JPA (Java Persistence API)</h2>
+<p>La JPA è una libreria per la persistenza dei dati all'interno di un database relazionale, basata sul modello ORM.</p>
+<h2>Servlet</h2>
+<p>Una servlet è una classe Java che elabora le richieste e risposte HTTP per creare applicazioni web dinamiche.</p>
+<h2>JDBC (Java Database Connectivity)</h2>
+<p>JDBC è una API standard che consente alle applicazioni Java di accedere ai dati in un database.</p>
+<h2>DAO (Data Access Object)</h2>
+<p>Un DAO è un pattern di progettazione che definisce un'interfaccia per l'accesso ai dati.</p>
+<h2>CRUD</h2>
+<p>CRUD sta per Create, Read, Update, Delete, le operazioni fondamentali per la gestione dei dati in un database.</p>
+<h2>MVC (Model-View-Controller)</h2>
+<p>Il pattern MVC separa l'interfaccia utente dalla logica dell'applicazione. È composto da:</p>
+<ul>
+<li><strong>Model</strong>: Gestisce i dati dell'applicazione.</li>
+<li><strong>View</strong>: Visualizza i dati dell'applicazione.</li>
+<li><strong>Controller</strong>: Gestisce l'interazione tra vista e modello.</li>
+</ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="mysql">MYSQL</h2>
+                                <div class="card-text">
+                                    <h2>Introduzione a MySQL</h2>
+<p>MySQL è un sistema di gestione di database relazionale (RDBMS) open-source molto utilizzato per la gestione di grandi quantità di dati in applicazioni web. È noto per le sue prestazioni, affidabilità e facilità d'uso.</p>
+<h2>Installazione di MySQL</h2>
+<p>Per installare MySQL, puoi seguire le istruzioni specifiche per il tuo sistema operativo:</p>
+<h3>Windows</h3>
+<ol>
+<li>Scarica l'installer dal sito ufficiale di MySQL.</li>
+<li>Esegui l'installer e segui le istruzioni per completare l'installazione.</li>
+<li>Configura le opzioni di installazione, inclusi il tipo di server, la porta, e l'utente root.</li>
+</ol>
+<h3>macOS</h3>
+<ol>
+<li>Scarica il pacchetto dmg dal sito ufficiale di MySQL.</li>
+<li>Esegui il file dmg e segui le istruzioni per l'installazione.</li>
+<li>Configura il server MySQL utilizzando MySQL Workbench o il terminale.</li>
+</ol>
+<h3>Linux</h3>
+<ol>
+<li>Utilizza il gestore di pacchetti del tuo sistema (es. <code>apt</code> per Debian/Ubuntu, <code>yum</code> per CentOS/Fedora).</li>
+<li>Esegui i comandi appropriati per installare MySQL, ad esempio:<pre><code class="language-shell">sudo apt-get update
+sudo apt-get install mysql-server
+</code></pre>
+</li>
+<li>Configura MySQL utilizzando il comando <code>mysql_secure_installation</code>.</li>
+</ol>
+<h2>Concetti di Base</h2>
+<h3>Database</h3>
+<p>Un database è una raccolta di dati organizzati. In MySQL, puoi creare un database utilizzando il comando <code>CREATE DATABASE</code>.</p>
+<pre><code class="language-sql">CREATE DATABASE nome_database;
+</code></pre>
+<h3>Tabelle</h3>
+<p>Le tabelle sono strutture all'interno di un database che memorizzano i dati. Puoi creare una tabella utilizzando il comando <code>CREATE TABLE</code>.</p>
+<pre><code class="language-sql">CREATE TABLE studenti (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cognome VARCHAR(255) NOT NULL,
+    eta INT
+);
+</code></pre>
+<h3>Tipi di Dati</h3>
+<p>MySQL supporta vari tipi di dati, tra cui:</p>
+<ul>
+<li><strong>INT</strong>: Numeri interi</li>
+<li><strong>VARCHAR</strong>: Stringhe di caratteri di lunghezza variabile</li>
+<li><strong>DATE</strong>: Date</li>
+<li><strong>FLOAT</strong>: Numeri in virgola mobile</li>
+</ul>
+<h3>Inserimento di Dati</h3>
+<p>Puoi inserire dati in una tabella utilizzando il comando <code>INSERT INTO</code>.</p>
+<pre><code class="language-sql">INSERT INTO studenti (nome, cognome, eta) VALUES ('Mario', 'Rossi', 20);
+</code></pre>
+<h3>Lettura di Dati</h3>
+<p>Puoi leggere i dati da una tabella utilizzando il comando <code>SELECT</code>.</p>
+<pre><code class="language-sql">SELECT * FROM studenti;
+</code></pre>
+<h3>Aggiornamento di Dati</h3>
+<p>Puoi aggiornare i dati in una tabella utilizzando il comando <code>UPDATE</code>.</p>
+<pre><code class="language-sql">UPDATE studenti SET eta = 21 WHERE id = 1;
+</code></pre>
+<h3>Cancellazione di Dati</h3>
+<p>Puoi cancellare i dati da una tabella utilizzando il comando <code>DELETE</code>.</p>
+<pre><code class="language-sql">DELETE FROM studenti WHERE id = 1;
+</code></pre>
+<h2>Comandi Avanzati</h2>
+<h3>JOIN</h3>
+<p>I comandi <code>JOIN</code> sono utilizzati per combinare righe da due o più tabelle basate su una relazione tra di esse.</p>
+<pre><code class="language-sql">SELECT studenti.nome, corsi.nome_corso
+FROM studenti
+JOIN iscrizioni ON studenti.id = iscrizioni.studente_id
+JOIN corsi ON iscrizioni.corso_id = corsi.id;
+</code></pre>
+<h3>Indici</h3>
+<p>Gli indici migliorano le prestazioni delle query. Puoi creare un indice utilizzando il comando <code>CREATE INDEX</code>.</p>
+<pre><code class="language-sql">CREATE INDEX idx_nome ON studenti(nome);
+</code></pre>
+<h3>Viste</h3>
+<p>Le viste sono tabelle virtuali basate sul risultato di una query SQL.</p>
+<pre><code class="language-sql">CREATE VIEW vista_studenti AS
+SELECT nome, cognome, eta FROM studenti;
+</code></pre>
+<h3>Stored Procedure</h3>
+<p>Le stored procedure sono insiemi di istruzioni SQL precompilate che possono essere eseguite come un singolo comando.</p>
+<pre><code class="language-sql">DELIMITER //
+CREATE PROCEDURE aggiungi_studente (IN nome VARCHAR(255), IN cognome VARCHAR(255), IN eta INT)
+BEGIN
+    INSERT INTO studenti (nome, cognome, eta) VALUES (nome, cognome, eta);
+END //
+DELIMITER ;
+</code></pre>
+<h3>Trigger</h3>
+<p>I trigger sono procedure memorizzate che vengono eseguite automaticamente in risposta a determinati eventi sul database.</p>
+<pre><code class="language-sql">CREATE TRIGGER before_studenti_insert
+BEFORE INSERT ON studenti
+FOR EACH ROW
+BEGIN
+    SET NEW.eta = IF(NEW.eta &lt; 18, 18, NEW.eta);
+END;
+</code></pre>
+<h2>Backup e Ripristino</h2>
+<h3>Backup</h3>
+<p>Puoi eseguire il backup di un database utilizzando il comando <code>mysqldump</code>.</p>
+<pre><code class="language-shell">mysqldump -u root -p nome_database &gt; backup.sql
+</code></pre>
+<h3>Ripristino</h3>
+<p>Puoi ripristinare un database da un file di backup utilizzando il comando <code>mysql</code>.</p>
+<pre><code class="language-shell">mysql -u root -p nome_database &lt; backup.sql
+</code></pre>
+<h2>Sicurezza</h2>
+<h3>Autenticazione e Autorizzazione</h3>
+<p>MySQL utilizza un sistema di utenti e privilegi per controllare l'accesso al database.</p>
+<h3>Crittografia</h3>
+<p>Puoi abilitare la crittografia delle connessioni utilizzando SSL/TLS.</p>
+<h2>Ottimizzazione</h2>
+<h3>Query Optimization</h3>
+<p>Utilizza indici e analizza le query per migliorarne le prestazioni.</p>
+<h3>Cache</h3>
+<p>MySQL supporta diverse tecniche di caching per migliorare le prestazioni.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="database">DATABASE</h2>
+                                <div class="card-text">
+                                    <h2>Cos'è un Database</h2>
+<p>Un database è una raccolta di dati correlati organizzati in modo strutturato, solitamente in tabelle composte da righe e colonne. Ogni riga rappresenta un record, mentre ogni colonna rappresenta un campo del record. I database sono essenziali per archiviare, gestire e recuperare grandi quantità di dati in modo efficiente.</p>
+<h2>A cosa serve un Database</h2>
+<p>I database sono utilizzati per:</p>
+<ul>
+<li>Memorizzare dati su clienti, prodotti, dipendenti, ecc.</li>
+<li>Tracciare transazioni finanziarie</li>
+<li>Gestire le scorte</li>
+<li>Ricercare informazioni</li>
+<li>Supportare applicazioni aziendali e web</li>
+</ul>
+<h2>Tipi di Database</h2>
+<p>Esistono diversi tipi di database, ciascuno con le proprie caratteristiche e casi d'uso.</p>
+<h3>Database Relazionali (RDBMS)</h3>
+<p>I database relazionali organizzano i dati in tabelle bidimensionali con righe e colonne. Utilizzano SQL (Structured Query Language) per la gestione e l'interrogazione dei dati.</p>
+<h3>Database NoSQL</h3>
+<p>I database NoSQL non utilizzano schemi fissi e sono progettati per gestire grandi volumi di dati non strutturati o semi-strutturati. Esistono vari tipi di database NoSQL:</p>
+<ul>
+<li><strong>Document Store</strong>: Memorizzano dati come documenti JSON (es. MongoDB).</li>
+<li><strong>Key-Value Store</strong>: Memorizzano dati come coppie chiave-valore (es. Redis).</li>
+<li><strong>Column Store</strong>: Memorizzano dati in colonne anziché in righe (es. Apache Cassandra).</li>
+<li><strong>Graph Database</strong>: Memorizzano dati come nodi e relazioni (es. Neo4j).</li>
+</ul>
+<h3>Database ad Oggetti</h3>
+<p>I database ad oggetti memorizzano i dati sotto forma di oggetti, simili a come sono rappresentati nella programmazione orientata agli oggetti.</p>
+<h3>Database Gerarchici</h3>
+<p>I database gerarchici organizzano i dati in una struttura ad albero, con record genitore-figlio.</p>
+<h3>Database Reticolati</h3>
+<p>I database reticolati sono simili ai database gerarchici, ma i record possono avere più genitori, formando una struttura a rete.</p>
+<h2>DBMS (Database Management System)</h2>
+<p>Un DBMS è un software che consente agli utenti di creare, modificare, archiviare, recuperare e cancellare dati da un database. Offre un'interfaccia per l'interazione con il database e gestisce l'accesso concorrente, la sicurezza e l'integrità dei dati.</p>
+<h3>Funzionalità di un DBMS</h3>
+<ul>
+<li><strong>Indipendenza dei Dati</strong>: Consente l'accesso ai dati tramite uno schema logico, indipendentemente dalla loro rappresentazione fisica.</li>
+<li><strong>Condivisione e Integrazione</strong>: Permette la condivisione e l'integrazione dei dati tra diverse applicazioni.</li>
+<li><strong>Controllo dell'Accesso Concorrente</strong>: Gestisce l'accesso simultaneo ai dati da parte di più utenti.</li>
+<li><strong>Sicurezza dei Dati</strong>: Protegge i dati da accessi non autorizzati.</li>
+<li><strong>Integrità dei Dati</strong>: Mantiene la correttezza e la coerenza dei dati.</li>
+</ul>
+<h3>Tipi di DBMS</h3>
+<ul>
+<li><strong>RDBMS (Relational DBMS)</strong>: Utilizza il modello relazionale (es. MySQL, PostgreSQL, Oracle).</li>
+<li><strong>NoSQL DBMS</strong>: Utilizza vari modelli di dati (es. MongoDB, CouchDB, Redis).</li>
+<li><strong>ODBMS (Object DBMS)</strong>: Utilizza il modello a oggetti (es. db4o, ObjectDB).</li>
+</ul>
+<h2>Schema del Database</h2>
+<p>Lo schema di un database definisce la struttura e l'organizzazione dei dati, inclusi tabelle, campi, relazioni e vincoli. Lo schema può essere modificato utilizzando comandi DDL (Data Definition Language) come <code>CREATE</code>, <code>ALTER</code> e <code>DROP</code>.</p>
+<h2>Normalizzazione</h2>
+<p>La normalizzazione è il processo di organizzazione dei dati in un database per ridurre la ridondanza e migliorare l'integrità dei dati. Esistono diverse forme normali (1NF, 2NF, 3NF, BCNF) che definiscono livelli di normalizzazione sempre più rigorosi.</p>
+<h3>Vantaggi della Normalizzazione</h3>
+<ul>
+<li>Riduzione della ridondanza dei dati</li>
+<li>Miglioramento dell'integrità dei dati</li>
+<li>Facilitazione della manutenzione del database</li>
+</ul>
+<h2>Denormalizzazione</h2>
+<p>La denormalizzazione è il processo inverso della normalizzazione e comporta l'aggiunta di ridondanza ai dati per migliorare le prestazioni di alcune query.</p>
+<h3>Vantaggi della Denormalizzazione</h3>
+<ul>
+<li>Miglioramento delle prestazioni delle query</li>
+<li>Riduzione del numero di join complessi</li>
+</ul>
+<h2>ACID</h2>
+<p>ACID è un insieme di proprietà che garantiscono l'affidabilità delle transazioni del database:</p>
+<ul>
+<li><strong>Atomicità</strong>: Le transazioni sono tutto o niente.</li>
+<li><strong>Consistenza</strong>: Le transazioni portano il database da uno stato valido a un altro stato valido.</li>
+<li><strong>Isolamento</strong>: Le transazioni concorrenti non interferiscono tra loro.</li>
+<li><strong>Durabilità</strong>: Una volta confermata, una transazione è permanente.</li>
+</ul>
+<h2>Backup e Ripristino</h2>
+<p>Il backup è il processo di copia dei dati del database per proteggerli da perdita o corruzione. Il ripristino è il processo di ripristino dei dati da un backup.</p>
+<h2>Sicurezza del Database</h2>
+<p>La sicurezza del database protegge i dati da accessi non autorizzati. Include tecniche come l'autenticazione degli utenti, il controllo degli accessi e la crittografia dei dati.</p>
+<h2>Indici</h2>
+<p>Gli indici migliorano le prestazioni delle query consentendo un accesso più rapido ai dati. Tuttavia, possono aumentare il tempo di inserimento e aggiornamento dei dati.</p>
+<h2>Transazioni</h2>
+<p>Una transazione è una sequenza di operazioni eseguite come un'unica unità logica di lavoro. Le transazioni devono rispettare le proprietà ACID per garantire l'affidabilità dei dati.</p>
+<h2>Trigger</h2>
+<p>I trigger sono procedure memorizzate che vengono eseguite automaticamente in risposta a determinati eventi sul database, come l'inserimento, l'aggiornamento o l'eliminazione di dati.</p>
+<h2>Stored Procedure</h2>
+<p>Le stored procedure sono insiemi di istruzioni SQL precompilate memorizzate nel database che possono essere eseguite per eseguire operazioni complesse e ripetitive.</p>
+<h2>Viste</h2>
+<p>Le viste sono tabelle virtuali basate sul risultato di una query SQL. Le viste possono semplificare la complessità delle query e migliorare la sicurezza limitando l'accesso ai dati.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="spring">SPRING</h2>
+                                <div class="card-text">
+                                    <h2>Introduzione a Spring Framework</h2>
+<p>Spring è un framework open-source per lo sviluppo di applicazioni Java di livello enterprise. Fornisce un supporto completo per lo sviluppo di applicazioni robuste, sicure e scalabili. Le principali funzionalità di Spring includono Inversion of Control (IoC), Aspect-Oriented Programming (AOP) e accesso ai dati.</p>
+<h2>Caratteristiche Principali</h2>
+<h3>Inversion of Control (IoC)</h3>
+<p>IoC è un principio di design in cui il controllo del flusso del programma viene invertito rispetto alla tradizionale programmazione. In Spring, IoC è realizzato tramite il concetto di dependency injection (DI), che permette di gestire le dipendenze tra gli oggetti.</p>
+<h3>Aspect-Oriented Programming (AOP)</h3>
+<p>AOP permette di separare le preoccupazioni trasversali (cross-cutting concerns) come logging, sicurezza e gestione delle transazioni dal codice business logic principale.</p>
+<h3>Accesso ai Dati</h3>
+<p>Spring fornisce un supporto robusto per l'accesso ai dati, integrandosi facilmente con JDBC, JPA, Hibernate e altri framework ORM.</p>
+<h2>Spring Boot</h2>
+<p>Spring Boot è un'estensione di Spring che semplifica la creazione di applicazioni stand-alone, pronte per la produzione, con una configurazione minima. Offre configurazioni predefinite e consente di avviare rapidamente un progetto Spring.</p>
+<h3>Creazione di un Progetto Spring Boot</h3>
+<p>Puoi creare un progetto Spring Boot utilizzando Spring Initializr (https://start.spring.io/).</p>
+<ol>
+<li>Vai su Spring Initializr.</li>
+<li>Seleziona le dipendenze richieste (es. Spring Web, Spring Data JPA).</li>
+<li>Genera il progetto e importalo nel tuo IDE preferito.</li>
+</ol>
+<h3>Struttura di un Progetto Spring Boot</h3>
+<p>Un tipico progetto Spring Boot contiene le seguenti directory:</p>
+<ul>
+<li><code>src/main/java</code>: Contiene il codice sorgente dell'applicazione.</li>
+<li><code>src/main/resources</code>: Contiene i file di configurazione e le risorse statiche.</li>
+<li><code>src/test/java</code>: Contiene i test dell'applicazione.</li>
+</ul>
+<h2>Configurazione di Spring</h2>
+<p>Spring utilizza annotazioni per configurare i componenti dell'applicazione. Alcune annotazioni comuni includono:</p>
+<ul>
+<li><code>@SpringBootApplication</code>: Indica la classe principale di un'applicazione Spring Boot.</li>
+<li><code>@Component</code>: Indica una classe come componente gestito da Spring.</li>
+<li><code>@Service</code>: Indica una classe di servizio.</li>
+<li><code>@Repository</code>: Indica una classe di accesso ai dati.</li>
+<li><code>@Controller</code>: Indica una classe controller per gestire le richieste web.</li>
+<li><code>@RestController</code>: Combina <code>@Controller</code> e <code>@ResponseBody</code> per semplificare la creazione di API RESTful.</li>
+</ul>
+<pre><code class="language-java">@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+</code></pre>
+<h2>Dependency Injection</h2>
+<p>Spring supporta la dependency injection tramite costruttori, setter e campi.</p>
+<h3>Dependency Injection tramite Costruttore</h3>
+<pre><code class="language-java">@Component
+public class MyService {
+    private final MyRepository myRepository;
+
+    @Autowired
+    public MyService(MyRepository myRepository) {
+        this.myRepository = myRepository;
+    }
+}
+</code></pre>
+<h3>Dependency Injection tramite Setter</h3>
+<pre><code class="language-java">@Component
+public class MyService {
+    private MyRepository myRepository;
+
+    @Autowired
+    public void setMyRepository(MyRepository myRepository) {
+        this.myRepository = myRepository;
+    }
+}
+</code></pre>
+<h3>Dependency Injection tramite Campo</h3>
+<pre><code class="language-java">@Component
+public class MyService {
+    @Autowired
+    private MyRepository myRepository;
+}
+</code></pre>
+<h2>Spring Data JPA</h2>
+<p>Spring Data JPA semplifica l'accesso ai dati in applicazioni Spring utilizzando JPA. Fornisce un supporto completo per l'accesso ai dati, inclusi repository, query methods e paginazione.</p>
+<h3>Creazione di un Repository</h3>
+<pre><code class="language-java">@Repository
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+    List&lt;User&gt; findByLastName(String lastName);
+}
+</code></pre>
+<h3>Utilizzo di un Repository</h3>
+<pre><code class="language-java">@Service
+public class UserService {
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public List&lt;User&gt; getUsersByLastName(String lastName) {
+        return userRepository.findByLastName(lastName);
+    }
+}
+</code></pre>
+<h2>Spring MVC</h2>
+<p>Spring MVC è un framework per lo sviluppo di applicazioni web basate sul pattern Model-View-Controller. Spring MVC gestisce le richieste HTTP e le mappa ai controller.</p>
+<h3>Creazione di un Controller</h3>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/api/users&quot;)
+public class UserController {
+    private final UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping
+    public List&lt;User&gt; getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return userService.saveUser(user);
+    }
+}
+</code></pre>
+<h2>Gestione delle Eccezioni</h2>
+<p>Spring fornisce un meccanismo per gestire le eccezioni a livello globale utilizzando <code>@ControllerAdvice</code>.</p>
+<pre><code class="language-java">@ControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity&lt;String&gt; handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+}
+</code></pre>
+<h2>Spring Security</h2>
+<p>Spring Security è un framework per la gestione della sicurezza nelle applicazioni Spring. Fornisce autenticazione e autorizzazione, protezione contro attacchi comuni e integrazione con altri sistemi di sicurezza.</p>
+<h3>Configurazione di Spring Security</h3>
+<pre><code class="language-java">@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+                .antMatchers(&quot;/public/**&quot;).permitAll()
+                .anyRequest().authenticated()
+            .and()
+            .formLogin()
+                .loginPage(&quot;/login&quot;)
+                .permitAll()
+            .and()
+            .logout()
+                .permitAll();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .inMemoryAuthentication()
+                .withUser(&quot;user&quot;).password(&quot;{noop}password&quot;).roles(&quot;USER&quot;);
+    }
+}
+</code></pre>
+<h2>Testing con Spring Boot</h2>
+<p>Spring Boot supporta il testing delle applicazioni utilizzando JUnit e altre librerie di testing.</p>
+<h3>Test di Unità</h3>
+<pre><code class="language-java">@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UserServiceTest {
+    @Autowired
+    private UserService userService;
+
+    @MockBean
+    private UserRepository userRepository;
+
+    @Test
+    public void testGetUsersByLastName() {
+        when(userRepository.findByLastName(&quot;Rossi&quot;)).thenReturn(Arrays.asList(new User(&quot;Mario&quot;, &quot;Rossi&quot;)));
+        List&lt;User&gt; users = userService.getUsersByLastName(&quot;Rossi&quot;);
+        assertEquals(1, users.size());
+        assertEquals(&quot;Mario&quot;, users.get(0).getFirstName());
+    }
+}
+</code></pre>
+<h2>Conclusione</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="git">GIT</h2>
+                                <div class="card-text">
+                                    <h2>Cos'è Git</h2>
+<p>Git è un sistema di controllo di versione distribuito utilizzato per tracciare le modifiche nel codice sorgente durante lo sviluppo del software. Permette a più sviluppatori di lavorare simultaneamente sullo stesso progetto senza conflitti e consente di mantenere una cronologia dettagliata di tutte le modifiche effettuate.</p>
+<h2>Perché usare Git</h2>
+<p>Git offre numerosi vantaggi per lo sviluppo del software, tra cui:</p>
+<ul>
+<li><strong>Collaborazione</strong>: Permette a più sviluppatori di lavorare sullo stesso progetto contemporaneamente.</li>
+<li><strong>Storico delle modifiche</strong>: Mantiene una cronologia dettagliata di tutte le modifiche, consentendo di ripristinare versioni precedenti.</li>
+<li><strong>Branching e merging</strong>: Supporta la creazione di rami (branches) per sviluppare nuove funzionalità isolatamente e successivamente unirli (merge) nel ramo principale.</li>
+<li><strong>Distribuzione</strong>: Ogni sviluppatore ha una copia completa del repository, migliorando la sicurezza e l'affidabilità.</li>
+</ul>
+<h2>Terminologia di Base</h2>
+<h3>Repository</h3>
+<p>Un repository (repo) è un archivio di codice sorgente gestito da Git. Può essere locale (sul computer dello sviluppatore) o remoto (su un server Git come GitHub, GitLab, Bitbucket).</p>
+<h3>Commit</h3>
+<p>Un commit rappresenta un'istantanea del codice in un momento specifico. Contiene un messaggio descrittivo e le modifiche apportate.</p>
+<h3>Branch</h3>
+<p>Un branch è una linea di sviluppo indipendente. Il branch principale è solitamente chiamato <code>master</code> o <code>main</code>, ma è possibile creare branch separati per lavorare su nuove funzionalità o correzioni di bug.</p>
+<h3>Merge</h3>
+<p>Il merge è il processo di unione di un branch con un altro, integrando le modifiche apportate.</p>
+<h3>Clone</h3>
+<p>Il clone è una copia di un repository remoto scaricato sul computer locale dello sviluppatore.</p>
+<h3>Pull</h3>
+<p>Il pull aggiorna il repository locale con le modifiche dal repository remoto.</p>
+<h3>Push</h3>
+<p>Il push invia le modifiche dal repository locale al repository remoto.</p>
+<h2>Flusso di Lavoro di Base con Git</h2>
+<ol>
+<li>
+<p><strong>Clonazione del Repository</strong></p>
+<ul>
+<li>Clona il repository remoto sul tuo computer locale.</li>
+</ul>
+<pre><code class="language-shell">git clone &lt;url-del-repository&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Creazione di un Branch</strong></p>
+<ul>
+<li>Crea un nuovo branch per lavorare su una nuova funzionalità o correzione.</li>
+</ul>
+<pre><code class="language-shell">git checkout -b nome-branch
+</code></pre>
+</li>
+<li>
+<p><strong>Aggiunta e Commit delle Modifiche</strong></p>
+<ul>
+<li>Aggiungi le modifiche al prossimo commit e crea un commit con un messaggio descrittivo.</li>
+</ul>
+<pre><code class="language-shell">git add .
+git commit -m &quot;Descrizione delle modifiche&quot;
+</code></pre>
+</li>
+<li>
+<p><strong>Push delle Modifiche</strong></p>
+<ul>
+<li>Invia le modifiche al repository remoto.</li>
+</ul>
+<pre><code class="language-shell">git push origin nome-branch
+</code></pre>
+</li>
+<li>
+<p><strong>Merge delle Modifiche</strong></p>
+<ul>
+<li>Unisci le modifiche dal branch al branch principale (di solito <code>main</code> o <code>master</code>).</li>
+</ul>
+<pre><code class="language-shell">git checkout main
+git merge nome-branch
+</code></pre>
+</li>
+<li>
+<p><strong>Aggiornamento del Repository Locale</strong></p>
+<ul>
+<li>Aggiorna il repository locale con le modifiche dal repository remoto.</li>
+</ul>
+<pre><code class="language-shell">git pull
+</code></pre>
+</li>
+</ol>
+<h2>Gestione dei Conflitti</h2>
+<p>Quando più sviluppatori lavorano sullo stesso file, possono verificarsi conflitti. Git notifica i conflitti durante il merge, e questi devono essere risolti manualmente.</p>
+<h3>Risoluzione dei Conflitti</h3>
+<ol>
+<li>
+<p><strong>Identificazione dei Conflitti</strong></p>
+<ul>
+<li>Git segnala i conflitti nei file con indicatori speciali.</li>
+</ul>
+</li>
+<li>
+<p><strong>Risoluzione dei Conflitti</strong></p>
+<ul>
+<li>Modifica manualmente i file per risolvere i conflitti.</li>
+</ul>
+<pre><code class="language-shell">git add file-conflitto-risolto
+git commit -m &quot;Risolto il conflitto nel file X&quot;
+</code></pre>
+</li>
+</ol>
+<h2>Strumenti e Piattaforme di Git</h2>
+<h3>GitHub</h3>
+<p>GitHub è una piattaforma di hosting per repository Git. Offre strumenti per la collaborazione, il code review e l'integrazione continua (CI/CD).</p>
+<h3>GitLab</h3>
+<p>GitLab è una piattaforma DevOps completa che fornisce repository Git, gestione dei progetti, integrazione continua e molto altro.</p>
+<h3>Bitbucket</h3>
+<p>Bitbucket è una piattaforma di hosting per repository Git con un forte focus sull'integrazione con altri strumenti di sviluppo Atlassian, come Jira.</p>
+<h2>Comandi Utili</h2>
+<ul>
+<li><strong>git status</strong>: Mostra lo stato del repository.</li>
+<li><strong>git log</strong>: Mostra la cronologia dei commit.</li>
+<li><strong>git branch</strong>: Elenca i branch esistenti.</li>
+<li><strong>git checkout</strong>: Passa a un altro branch o ripristina file specifici.</li>
+<li><strong>git fetch</strong>: Recupera le modifiche dal repository remoto senza unirle.</li>
+<li><strong>git rebase</strong>: Riapplica i commit da un branch su un altro.</li>
+</ul>
+<h2>Conclusione</h2>
+<p>Questa sezione copre le basi di Git, inclusi i concetti fondamentali, il flusso di lavoro di base, la gestione dei conflitti e le piattaforme di hosting. Nei prossimi capitoli, esploreremo in dettaglio le tecniche avanzate di utilizzo di Git e le best practices per la gestione del codice sorgente.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+                <aside class="col-md-4">
+                    <div class="card sticky-top">
+                        <div class="card-header">
+                            Capitoli
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            
+    <li class="list-group-item"><a href="#back-end-base-knowledge">BACK-END BASE KNOWLEDGE</a></li>
+
+    <li class="list-group-item"><a href="#java">JAVA</a></li>
+
+    <li class="list-group-item"><a href="#mysql">MYSQL</a></li>
+
+    <li class="list-group-item"><a href="#database">DATABASE</a></li>
+
+    <li class="list-group-item"><a href="#spring">SPRING</a></li>
+
+    <li class="list-group-item"><a href="#git">GIT</a></li>
+
+
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script>
+            document.querySelectorAll('pre').forEach(function (pre) {
+                const button = document.createElement('button');
+                button.className = 'btn btn-primary btn-sm float-end';
+                button.textContent = 'Copia';
+                button.addEventListener('click', function () {
+                    navigator.clipboard.writeText(pre.textContent).then(function () {
+                        button.textContent = 'Copiato!';
+                        setTimeout(function () {
+                            button.textContent = 'Copia';
+                        }, 2000);
+                    });
+                });
+                pre.appendChild(button);
+            });
+
+            const easterEggBtn = document.getElementById('easterEggBtn');
+            easterEggBtn.addEventListener('click', function () {
+                location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+            });
+
+            const infoButton = document.getElementById('infoButton');
+            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            infoButton.addEventListener('click', function () {
+                infoModal.show();
+            });
+
+
+            if (window.innerWidth < 768) {
+                const navbar = document.querySelector('.navbar-nav');
+                const aside = document.querySelector('aside');
+                navbar.innerHTML = aside.innerHTML;
+                aside.classList.add('d-none');
+                navbar.classList.add('d-block');
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                const scrollTopBtn = document.getElementById('scrollTopBtn');
+                scrollTopBtn.addEventListener('click', function () {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 100) {
+                        scrollTopBtn.style.display = 'block';
+                    } else {
+                        scrollTopBtn.style.display = 'none';
+                    }
+                });
+                const colors = [
+                    "#FF6F61", // Pastel Red
+                    "#92A8D1", // Pastel Blue
+                    "#88B04B", // Pastel Green
+                    "#F7786B", // Pastel Coral
+                    "#DE6FA1", // Pastel Magenta
+                    "#009B77", // Pastel Teal
+                    "#955251", // Pastel Brown
+                    "#B565A7", // Pastel Purple
+                    "#DD4124", // Pastel Orange
+                    "#45B8AC", // Pastel Mint
+                    "#EFC050", // Pastel Gold
+                    "#5B5EA6", // Pastel Indigo
+                    "#9B2335", // Pastel Burgundy
+                    "#DFCFBE", // Pastel Beige
+                    "#BC243C", // Pastel Crimson
+                    "#98B4D4", // Pastel Periwinkle
+                    "#C94C4C", // Pastel Maroon
+                    "#FFA07A" // Pastel Salmon
+                ];
+                const chapterCards = document.querySelectorAll('.chapter-card');
+                chapterCards.forEach((card, index) => {
+                    const color = colors[index % colors.length];
+                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, b, strong');
+                    headingsAndBold.forEach(element => {
+                        element.style.color = color;
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

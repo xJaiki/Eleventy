@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bibbia junior dev</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(to right, #222831, #31363F);
+                color: #333;
+            }
+            pre {
+                font-family: 'Roboto Mono', monospace !important;
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                padding: 10px;
+                overflow-x: auto;
+                color: #333;
+            }
+            h1 {
+                font-weight: 700;
+                text-decoration: underline dotted;
+            }
+            .btn-primary{
+                background-color: #222831;
+                border-color: #222831;
+            }
+            .btn-primary:hover{
+                background-color: #393e46;
+                border-color: #393e46;
+            }
+            .btn-primary:focus{
+                background-color: #393e46;
+                border-color: #393e46;
+            }
+            .btn-primary:active{
+                background-color: #17191c !important;
+                border-color: #17191c !important;
+            }
+            .navbar {
+                backdrop-filter: blur(10px);
+                background: rgba(0, 0, 0, 0.7) !important;
+            }
+            .card {
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.8);
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .card-header,
+            .card-body {
+                border-radius: 15px;
+            }
+            .list-group-item {
+                background: transparent;
+                border: none;
+                color: #007bff;
+            }
+            .list-group-item:hover {
+                color: #0056b3;
+                cursor: pointer;
+            }
+            .search-bar {
+                margin-bottom: 20px;
+            }
+            .highlight {
+                background: yellow;
+                font-weight: bold;
+            }
+            .btn-scroll {
+                background: #222831;
+                color: #fff;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Bibbia Junior developer</a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" aria-current="page" id="infoButton">Info</button>
+                </div>
+            </nav>
+        </header>
+        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModalLabel">Informazioni</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Questa guida e' stata creata con <a href="https://www.11ty.dev/">Eleventy</a> e <a
+                                href="https://getbootstrap.com/">Bootstrap</a>.</p>
+                        <p>La guida e' in continuo aggiornamento e miglioramento</p>
+                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla <a href="https://github.com/xjaiki">repository</a> , aggiungendo un capitolo o
+                            migliorando uno esistente.</p>
+                        <p>Trovi tutte le informazioni sul readme del progetto!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="easterEggBtn">Non cliccarmi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button
+            id="scrollTopBtn"
+            class="btn-scroll"
+            style="display: none; position: fixed; bottom: 20px; right: 20px; z-index:99">Top</button>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for chapter in collections.chapters %}
+                        <div class="card mb-4 chapter-card">
+                            <div class="card-body">
+                                <h1 id="{{ chapter.data.title | slug }}">{{ chapter.data.title }}</h2>
+                                <div class="card-text">
+                                    {{ chapter.templateContent | safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <aside class="col-md-4">
+                    <div class="card sticky-top">
+                        <div class="card-header">
+                            Capitoli
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            {% include "navbar.njk" %}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script>
+            document.querySelectorAll('pre').forEach(function (pre) {
+                const button = document.createElement('button');
+                button.className = 'btn btn-primary btn-sm float-end';
+                button.textContent = 'Copia';
+                button.addEventListener('click', function () {
+                    navigator.clipboard.writeText(pre.textContent).then(function () {
+                        button.textContent = 'Copiato!';
+                        setTimeout(function () {
+                            button.textContent = 'Copia';
+                        }, 2000);
+                    });
+                });
+                pre.appendChild(button);
+            });
+
+            const easterEggBtn = document.getElementById('easterEggBtn');
+            easterEggBtn.addEventListener('click', function () {
+                location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+            });
+
+            const infoButton = document.getElementById('infoButton');
+            const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+            infoButton.addEventListener('click', function () {
+                infoModal.show();
+            });
+
+
+            if (window.innerWidth < 768) {
+                const navbar = document.querySelector('.navbar-nav');
+                const aside = document.querySelector('aside');
+                navbar.innerHTML = aside.innerHTML;
+                aside.classList.add('d-none');
+                navbar.classList.add('d-block');
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                const scrollTopBtn = document.getElementById('scrollTopBtn');
+                scrollTopBtn.addEventListener('click', function () {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 100) {
+                        scrollTopBtn.style.display = 'block';
+                    } else {
+                        scrollTopBtn.style.display = 'none';
+                    }
+                });
+                const colors = [
+                    "#FF6F61", // Pastel Red
+                    "#92A8D1", // Pastel Blue
+                    "#88B04B", // Pastel Green
+                    "#F7786B", // Pastel Coral
+                    "#DE6FA1", // Pastel Magenta
+                    "#009B77", // Pastel Teal
+                    "#955251", // Pastel Brown
+                    "#B565A7", // Pastel Purple
+                    "#DD4124", // Pastel Orange
+                    "#45B8AC", // Pastel Mint
+                    "#EFC050", // Pastel Gold
+                    "#5B5EA6", // Pastel Indigo
+                    "#9B2335", // Pastel Burgundy
+                    "#DFCFBE", // Pastel Beige
+                    "#BC243C", // Pastel Crimson
+                    "#98B4D4", // Pastel Periwinkle
+                    "#C94C4C", // Pastel Maroon
+                    "#FFA07A" // Pastel Salmon
+                ];
+                const chapterCards = document.querySelectorAll('.chapter-card');
+                chapterCards.forEach((card, index) => {
+                    const color = colors[index % colors.length];
+                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, b, strong');
+                    headingsAndBold.forEach(element => {
+                        element.style.color = color;
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

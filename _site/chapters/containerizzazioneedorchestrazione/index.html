@@ -228,16 +228,16 @@
                                 </div>
                             
                                 <div class="form-check">
-                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="devops" id="devops" checked>
-                                    <label class="form-check-label" for="devops">
-                                        DEVOPS
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="undefined" id="undefined" checked>
+                                    <label class="form-check-label" for="undefined">
+                                        
                                     </label>
                                 </div>
                             
                                 <div class="form-check">
-                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="docker" id="docker" checked>
-                                    <label class="form-check-label" for="docker">
-                                        DOCKER
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="containerizzazione" id="containerizzazione" checked>
+                                    <label class="form-check-label" for="containerizzazione">
+                                        CONTAINERIZZAZIONE
                                     </label>
                                 </div>
                             
@@ -1541,9 +1541,9 @@ export class AppRoutingModule { }
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card" id="card-devops">
+                        <div class="card mb-4 chapter-card" id="card-undefined">
                             <div class="card-body">
-                                <h1 id="devops">DEVOPS</h2>
+                                <h1 id="undefined"></h2>
                                 <div class="card-text">
                                     <h2>Introduzione</h2>
 <p>Il ruolo del DevOps Engineer è cruciale nelle moderne organizzazioni IT. Questo capitolo esplorerà in dettaglio le competenze, le pratiche, gli strumenti e le responsabilità chiave di un DevOps Engineer. Comprendere questi elementi è essenziale per chiunque voglia intraprendere una carriera in questo campo.</p>
@@ -1652,148 +1652,123 @@ export class AppRoutingModule { }
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card" id="card-docker">
+                        <div class="card mb-4 chapter-card" id="card-containerizzazione">
                             <div class="card-body">
-                                <h1 id="docker">DOCKER</h2>
+                                <h1 id="containerizzazione">CONTAINERIZZAZIONE</h2>
                                 <div class="card-text">
-                                    <h2>Introduzione a Docker</h2>
-<p>Docker è una piattaforma di containerizzazione open-source che automatizza il deployment di applicazioni all'interno di container leggeri e portabili. Docker permette agli sviluppatori di creare, distribuire ed eseguire applicazioni in ambienti isolati, garantendo che funzionino in modo coerente su qualsiasi sistema.</p>
-<h2>Concetti Fondamentali di Docker</h2>
-<h3>Container</h3>
-<p>Un container è un'istanza leggera e portabile di un ambiente di runtime che include l'applicazione e tutte le sue dipendenze. I container condividono il kernel del sistema operativo, ma sono isolati l'uno dall'altro.</p>
-<h3>Immagine</h3>
-<p>Un'immagine Docker è un pacchetto immutabile che contiene tutto il necessario per eseguire un'applicazione, inclusi il codice dell'applicazione, le librerie, le dipendenze e il sistema operativo di base. Le immagini sono la base per la creazione dei container.</p>
-<h3>Dockerfile</h3>
-<p>Un Dockerfile è un file di testo con una serie di istruzioni che Docker utilizza per costruire un'immagine. Esso specifica il sistema operativo di base, le dipendenze, i file da includere e i comandi da eseguire.</p>
-<h3>Registri</h3>
-<p>I registri sono repository dove le immagini Docker possono essere memorizzate e distribuite. Docker Hub è il registro pubblico più popolare, ma esistono anche registri privati come Amazon ECR, Google Container Registry e altri.</p>
-<h2>Installazione di Docker</h2>
-<h3>Windows e macOS</h3>
-<ol>
-<li>Scarica Docker Desktop dal sito ufficiale di Docker.</li>
-<li>Esegui il file di installazione e segui le istruzioni.</li>
-<li>Dopo l'installazione, Docker sarà disponibile tramite l'interfaccia grafica e la linea di comando.</li>
-</ol>
-<h3>Linux</h3>
-<ol>
-<li>Aggiorna il gestore di pacchetti:<pre><code class="language-shell">sudo apt-get update
-</code></pre>
-</li>
-<li>Installa i pacchetti necessari:<pre><code class="language-shell">sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-</code></pre>
-</li>
-<li>Aggiungi il repository Docker GPG:<pre><code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-</code></pre>
-</li>
-<li>Aggiungi il repository Docker APT:<pre><code class="language-shell">sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
-</code></pre>
-</li>
-<li>Installa Docker:<pre><code class="language-shell">sudo apt-get update
-sudo apt-get install docker-ce
-</code></pre>
-</li>
-<li>Verifica l'installazione:<pre><code class="language-shell">sudo docker --version
-</code></pre>
-</li>
-</ol>
-<h2>Comandi di Base di Docker</h2>
-<h3>Esecuzione di un Container</h3>
-<p>Il comando <code>docker run</code> crea e avvia un nuovo container.</p>
-<pre><code class="language-shell">docker run hello-world
-</code></pre>
-<h3>Elenco dei Container</h3>
-<p>Il comando <code>docker ps</code> mostra i container in esecuzione.</p>
-<pre><code class="language-shell">docker ps
-</code></pre>
-<p>Il comando <code>docker ps -a</code> mostra tutti i container, inclusi quelli fermati.</p>
-<pre><code class="language-shell">docker ps -a
-</code></pre>
-<h3>Gestione delle Immagini</h3>
+                                    <h2>Introduzione</h2>
+<p>La containerizzazione e l'orchestrazione sono tecnologie chiave nel moderno sviluppo software, specialmente nell'ambito DevOps. I container consentono di eseguire applicazioni in ambienti isolati e consistenti, mentre gli strumenti di orchestrazione gestiscono automaticamente il deployment, la scalabilità e il networking dei container.</p>
+<h2>Containerizzazione</h2>
+<h3>Cos'è la Containerizzazione</h3>
+<p>La containerizzazione è una tecnologia che consente di eseguire applicazioni e i loro dipendenze in ambienti isolati chiamati container. I container sono leggeri, portabili e offrono un'esecuzione consistente in qualsiasi ambiente, dalla macchina di sviluppo ai server di produzione.</p>
+<h3>Vantaggi della Containerizzazione</h3>
 <ul>
-<li><strong>Elenco delle Immagini</strong>: Il comando <code>docker images</code> elenca tutte le immagini disponibili localmente.<pre><code class="language-shell">docker images
-</code></pre>
-</li>
-<li><strong>Rimozione di un'Immagine</strong>: Il comando <code>docker rmi</code> rimuove un'immagine.<pre><code class="language-shell">docker rmi nome-immagine
-</code></pre>
-</li>
+<li><strong>Isolamento</strong>: Ogni container è isolato dagli altri, garantendo che le applicazioni non interferiscano tra loro.</li>
+<li><strong>Portabilità</strong>: I container possono essere eseguiti su qualsiasi sistema operativo che supporta il runtime del container.</li>
+<li><strong>Efficienza</strong>: I container condividono il kernel del sistema operativo, rendendoli più leggeri rispetto alle macchine virtuali.</li>
+<li><strong>Consistenza</strong>: Le applicazioni nei container funzionano allo stesso modo in tutti gli ambienti, riducendo i problemi di &quot;funziona sulla mia macchina&quot;.</li>
 </ul>
-<h3>Costruzione di un'Immagine</h3>
-<p>Il comando <code>docker build</code> costruisce un'immagine da un Dockerfile.</p>
-<pre><code class="language-shell">docker build -t nome-immagine .
-</code></pre>
-<h3>Gestione dei Container</h3>
+<h3>Docker</h3>
+<p>Docker è la piattaforma di containerizzazione più popolare, che consente di creare, distribuire e gestire container in modo semplice ed efficiente.</p>
+<h4>Installazione di Docker</h4>
 <ul>
-<li><strong>Avvio di un Container</strong>: Il comando <code>docker start</code> avvia un container esistente.<pre><code class="language-shell">docker start nome-container
-</code></pre>
-</li>
-<li><strong>Arresto di un Container</strong>: Il comando <code>docker stop</code> arresta un container in esecuzione.<pre><code class="language-shell">docker stop nome-container
-</code></pre>
-</li>
-<li><strong>Rimozione di un Container</strong>: Il comando <code>docker rm</code> rimuove un container.<pre><code class="language-shell">docker rm nome-container
-</code></pre>
-</li>
+<li><strong>Windows/MacOS</strong>: Scaricare e installare Docker Desktop dal sito ufficiale di Docker.</li>
+<li><strong>Linux</strong>: Installare Docker tramite il gestore di pacchetti del proprio sistema operativo.</li>
 </ul>
-<h2>Dockerfile</h2>
-<h3>Struttura di un Dockerfile</h3>
-<p>Un Dockerfile contiene una serie di istruzioni che definiscono come costruire un'immagine Docker.</p>
-<p>Esempio di Dockerfile:</p>
-<pre><code class="language-dockerfile"># Utilizza un'immagine di base
-FROM ubuntu:latest
-
-# Imposta il maintainer dell'immagine
-LABEL maintainer=&quot;tuoemail@example.com&quot;
-
-# Installa le dipendenze
-RUN apt-get update &amp;&amp; apt-get install -y nginx
-
-# Copia i file nella directory di lavoro
-COPY . /usr/share/nginx/html
-
-# Espone la porta
-EXPOSE 80
-
-# Comando per avviare il server Nginx
-CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
-</code></pre>
-<h3>Costruzione di un'Immagine da un Dockerfile</h3>
-<pre><code class="language-shell">docker build -t nome-immagine .
-</code></pre>
-<h2>Docker Compose</h2>
-<p>Docker Compose è uno strumento per definire ed eseguire applicazioni Docker multi-container. Utilizza un file YAML per configurare i servizi dell'applicazione.</p>
-<h3>Installazione di Docker Compose</h3>
-<p>Docker Compose è incluso in Docker Desktop per Windows e macOS. Su Linux, può essere installato tramite pip:</p>
-<pre><code class="language-shell">sudo apt-get install python3-pip
-sudo pip3 install docker-compose
-</code></pre>
-<h3>File docker-compose.yml</h3>
-<p>Esempio di file <code>docker-compose.yml</code>:</p>
-<pre><code class="language-yaml">version: '3'
+<h4>Comandi di Base di Docker</h4>
+<ul>
+<li>
+<p><strong>docker run</strong>: Esegue un nuovo container.
+👍shell
+docker run hello-world
+👍</p>
+</li>
+<li>
+<p><strong>docker ps</strong>: Elenca i container in esecuzione.
+👍shell
+docker ps
+👍</p>
+</li>
+<li>
+<p><strong>docker images</strong>: Elenca le immagini disponibili.
+👍shell
+docker images
+👍</p>
+</li>
+<li>
+<p><strong>docker build</strong>: Crea un'immagine Docker da un Dockerfile.
+👍shell
+docker build -t nome-immagine .
+👍</p>
+</li>
+<li>
+<p><strong>docker-compose</strong>: Strumento per definire e gestire applicazioni multi-container.
+👍yaml
+version: '3'
 services:
-  web:
-    image: nginx
-    ports:
-      - &quot;80:80&quot;
-  database:
-    image: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: esempio
-</code></pre>
-<h3>Utilizzo di Docker Compose</h3>
-<ul>
-<li><strong>Avvio dei Servizi</strong>: Il comando <code>docker-compose up</code> avvia tutti i servizi definiti nel file <code>docker-compose.yml</code>.<pre><code class="language-shell">docker-compose up
-</code></pre>
-</li>
-<li><strong>Arresto dei Servizi</strong>: Il comando <code>docker-compose down</code> arresta e rimuove tutti i container, le reti e i volumi creati da <code>docker-compose up</code>.<pre><code class="language-shell">docker-compose down
-</code></pre>
+web:
+image: nginx
+ports:
+- &quot;80:80&quot;
+👍</p>
 </li>
 </ul>
-<h2>Best Practices per l'Uso di Docker</h2>
+<h2>Orchestrazione dei Container</h2>
+<h3>Cos'è l'Orchestrazione dei Container</h3>
+<p>L'orchestrazione dei container è il processo di gestione automatizzata del deployment, scalabilità, networking e gestione dei container. È essenziale per eseguire applicazioni containerizzate su larga scala.</p>
+<h3>Kubernetes</h3>
+<p>Kubernetes è la piattaforma di orchestrazione dei container più diffusa, sviluppata da Google. Fornisce un sistema robusto per gestire applicazioni containerizzate in ambienti complessi.</p>
+<h4>Architettura di Kubernetes</h4>
+<ul>
+<li><strong>Master Node</strong>: Gestisce lo stato desiderato del cluster, includendo i componenti API server, scheduler e controller manager.</li>
+<li><strong>Worker Node</strong>: Esegue i container applicativi e contiene i componenti kubelet e kube-proxy.</li>
+</ul>
+<h4>Componenti Principali di Kubernetes</h4>
+<ul>
+<li><strong>Pod</strong>: Un gruppo di uno o più container, il livello più piccolo di unità di deployment.</li>
+<li><strong>Service</strong>: Definisce un endpoint stabile per un insieme di pod.</li>
+<li><strong>Deployment</strong>: Gestisce la distribuzione e la scalabilità di un set di pod identici.</li>
+<li><strong>ConfigMap e Secret</strong>: Gestiscono configurazioni e segreti rispettivamente.</li>
+</ul>
+<h4>Comandi di Base di Kubernetes</h4>
+<ul>
+<li>
+<p><strong>kubectl apply</strong>: Applica una configurazione al cluster.
+👍shell
+kubectl apply -f deployment.yaml
+👍</p>
+</li>
+<li>
+<p><strong>kubectl get</strong>: Recupera informazioni su risorse nel cluster.
+👍shell
+kubectl get pods
+👍</p>
+</li>
+<li>
+<p><strong>kubectl describe</strong>: Fornisce dettagli su una risorsa specifica.
+👍shell
+kubectl describe pod nome-pod
+👍</p>
+</li>
+<li>
+<p><strong>kubectl logs</strong>: Visualizza i log di un container in un pod.
+👍shell
+kubectl logs nome-pod
+👍</p>
+</li>
+</ul>
+<h3>Altri Strumenti di Orchestrazione</h3>
+<ul>
+<li><strong>Docker Swarm</strong>: Strumento di orchestrazione integrato in Docker.</li>
+<li><strong>Apache Mesos</strong>: Piattaforma per la gestione delle risorse e l'orchestrazione dei container.</li>
+</ul>
+<h2>Best Practices per la Containerizzazione e l'Orchestrazione</h2>
 <ol>
-<li><strong>Utilizzare Immagini Ufficiali e Minimali</strong>: Utilizzare immagini ufficiali e minimali per ridurre la superficie di attacco e migliorare la sicurezza.</li>
-<li><strong>Gestione dei Segreti</strong>: Utilizzare strumenti come Docker Secrets per gestire le credenziali in modo sicuro.</li>
-<li><strong>Monitoraggio e Logging</strong>: Implementare strumenti di monitoraggio e logging per tracciare le performance e il comportamento dei container.</li>
-<li><strong>Network Segmentation</strong>: Utilizzare reti Docker per isolare i container e limitare l'accesso non autorizzato.</li>
-<li><strong>Scansione delle Immagini</strong>: Utilizzare strumenti di scansione delle immagini per rilevare vulnerabilità e garantire la sicurezza.</li>
+<li><strong>Sicurezza dei Container</strong>: Implementare pratiche di sicurezza come scansioni di vulnerabilità, gestione dei segreti e utilizzo di immagini minimali.</li>
+<li><strong>Monitoraggio e Logging</strong>: Utilizzare strumenti come Prometheus e Grafana per monitorare le applicazioni, e ELK Stack per analizzare i log.</li>
+<li><strong>Gestione delle Configurazioni</strong>: Utilizzare ConfigMap e Secret in Kubernetes per gestire configurazioni e segreti in modo sicuro.</li>
+<li><strong>Scalabilità</strong>: Configurare l'auto-scalabilità dei deployment per adattarsi dinamicamente ai carichi di lavoro variabili.</li>
+<li><strong>Backup e Ripristino</strong>: Implementare soluzioni di backup e ripristino per garantire la disponibilità dei dati e la continuità del servizio.</li>
 </ol>
 
                                 </div>
@@ -1826,9 +1801,9 @@ services:
 
     <li class="list-group-item"><a id="nav-item-unix" href="#card-unix">UNIX</a></li>
 
-    <li class="list-group-item"><a id="nav-item-devops" href="#card-devops">DEVOPS</a></li>
+    <li class="list-group-item"><a id="nav-item-undefined" href="#card-undefined"></a></li>
 
-    <li class="list-group-item"><a id="nav-item-docker" href="#card-docker">DOCKER</a></li>
+    <li class="list-group-item"><a id="nav-item-containerizzazione" href="#card-containerizzazione">CONTAINERIZZAZIONE</a></li>
 
 
                         </ul>

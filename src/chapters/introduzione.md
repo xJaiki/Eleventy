@@ -10,7 +10,7 @@ Benvenuto nella Bibbia dell'IT Consulting per Junior Developer! Questo documento
 Questo documento è organizzato in capitoli, ognuno dedicato a un argomento specifico del mondo dello sviluppo software. Ogni capitolo fornisce una panoramica teorica seguita da esempi pratici per consolidare le conoscenze acquisite.
 
 ## Cosa Imparerai
-In questo documento, esploreremo una vasta gamma di argomenti essenziali per diventare un junior developer competente. Ogni capitolo ti guiderà attraverso i concetti fondamentali, le best practices e gli strumenti più comuni utilizzati nel settore.
+In questo documento, esplorerai una vasta gamma di argomenti, in modo da ottenere una visione generale del mondo dello sviluppo software. Ovviamente, non è possibile coprire tutto in un solo documento, ma l'obiettivo è fornirti una base solida su cui costruire le tue conoscenze e competenze. Ricorda che la pratica è fondamentale per diventare un buon sviluppatore, quindi non esitare a sperimentare e creare progetti personali.
 
 ## Link Utili
 Di seguito troverai alcuni link utili che possono aiutarti nel tuo percorso di apprendimento e crescita professionale:

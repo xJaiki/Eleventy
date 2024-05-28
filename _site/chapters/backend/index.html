@@ -54,6 +54,10 @@
                 font-weight: 400;
                 font-size: 1.5rem;
             }
+            h4 {
+                font-weight: 300;
+                font-size: 1.2rem;
+            }
             .btn-primary {
                 background-color: #222831;
                 border-color: #222831;
@@ -209,6 +213,34 @@
                                     </label>
                                 </div>
                             
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="angular" id="angular" checked>
+                                    <label class="form-check-label" for="angular">
+                                        ANGULAR
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="unix" id="unix" checked>
+                                    <label class="form-check-label" for="unix">
+                                        UNIX
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="devops" id="devops" checked>
+                                    <label class="form-check-label" for="devops">
+                                        DEVOPS
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="docker" id="docker" checked>
+                                    <label class="form-check-label" for="docker">
+                                        DOCKER
+                                    </label>
+                                </div>
+                            
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -261,7 +293,7 @@
 <h2>Struttura del Documento</h2>
 <p>Questo documento è organizzato in capitoli, ognuno dedicato a un argomento specifico del mondo dello sviluppo software. Ogni capitolo fornisce una panoramica teorica seguita da esempi pratici per consolidare le conoscenze acquisite.</p>
 <h2>Cosa Imparerai</h2>
-<p>In questo documento, esploreremo una vasta gamma di argomenti essenziali per diventare un junior developer competente. Ogni capitolo ti guiderà attraverso i concetti fondamentali, le best practices e gli strumenti più comuni utilizzati nel settore.</p>
+<p>In questo documento, esplorerai una vasta gamma di argomenti, in modo da ottenere una visione generale del mondo dello sviluppo software. Ovviamente, non è possibile coprire tutto in un solo documento, ma l'obiettivo è fornirti una base solida su cui costruire le tue conoscenze e competenze. Ricorda che la pratica è fondamentale per diventare un buon sviluppatore, quindi non esitare a sperimentare e creare progetti personali.</p>
 <h2>Link Utili</h2>
 <p>Di seguito troverai alcuni link utili che possono aiutarti nel tuo percorso di apprendimento e crescita professionale:</p>
 <ul>
@@ -1203,8 +1235,566 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
 <li><strong>git fetch</strong>: Recupera le modifiche dal repository remoto senza unirle.</li>
 <li><strong>git rebase</strong>: Riapplica i commit da un branch su un altro.</li>
 </ul>
-<h2>Conclusione</h2>
-<p>Questa sezione copre le basi di Git, inclusi i concetti fondamentali, il flusso di lavoro di base, la gestione dei conflitti e le piattaforme di hosting. Nei prossimi capitoli, esploreremo in dettaglio le tecniche avanzate di utilizzo di Git e le best practices per la gestione del codice sorgente.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card" id="card-angular">
+                            <div class="card-body">
+                                <h1 id="angular">ANGULAR</h2>
+                                <div class="card-text">
+                                    <h2>Introduzione a Angular</h2>
+<p>Angular è un framework front-end open-source sviluppato e mantenuto da Google, utilizzato per creare applicazioni web dinamiche e single-page applications (SPA). Angular offre un set completo di strumenti per lo sviluppo di applicazioni client-side moderne, con un forte supporto per TypeScript.</p>
+<h2>Caratteristiche Principali</h2>
+<h3>Component-Based Architecture</h3>
+<p>Angular utilizza un'architettura basata su componenti, dove ogni parte dell'interfaccia utente è suddivisa in componenti riutilizzabili. Ogni componente ha il proprio template HTML, stile CSS e logica TypeScript.</p>
+<h3>Dependency Injection</h3>
+<p>Angular incorpora un meccanismo di dependency injection che facilita la gestione delle dipendenze tra i vari componenti e servizi, migliorando la modularità e la testabilità del codice.</p>
+<h3>Data Binding</h3>
+<p>Angular supporta vari tipi di data binding:</p>
+<ul>
+<li><strong>One-Way Data Binding</strong>: Permette di sincronizzare i dati dal modello alla vista.</li>
+<li><strong>Two-Way Data Binding</strong>: Permette di sincronizzare i dati tra il modello e la vista bidirezionalmente.</li>
+</ul>
+<h3>Directives</h3>
+<p>Le directives sono marker su un elemento DOM (come attributi, elementi, classi) che indicano ad Angular di associare un comportamento specifico a quell'elemento.</p>
+<h3>Services and Dependency Injection</h3>
+<p>I servizi in Angular sono utilizzati per condividere dati e logica tra diversi componenti. Grazie alla dependency injection, è possibile iniettare servizi nei componenti in modo semplice ed efficace.</p>
+<h3>Routing</h3>
+<p>Angular offre un potente sistema di routing che permette di navigare tra le diverse viste dell'applicazione senza ricaricare la pagina intera, supportando le single-page applications.</p>
+<h2>Creazione di un Progetto Angular</h2>
+<h3>Installazione di Angular CLI</h3>
+<p>Angular CLI (Command Line Interface) è uno strumento per inizializzare, sviluppare, mantenere e testare applicazioni Angular.</p>
+<pre><code class="language-shell">npm install -g @angular/cli
+</code></pre>
+<h3>Creazione di un Nuovo Progetto</h3>
+<pre><code class="language-shell">ng new nome-progetto
+cd nome-progetto
+ng serve
+</code></pre>
+<h2>Struttura di un Progetto Angular</h2>
+<p>Un tipico progetto Angular contiene le seguenti directory e file:</p>
+<ul>
+<li><strong>src/app</strong>: Contiene i componenti, servizi, moduli e altri file di sorgente dell'applicazione.</li>
+<li><strong>src/assets</strong>: Contiene risorse statiche come immagini e file CSS.</li>
+<li><strong>src/environments</strong>: Contiene file di configurazione per diversi ambienti (es. sviluppo, produzione).</li>
+<li><strong>angular.json</strong>: File di configurazione del progetto Angular.</li>
+<li><strong>package.json</strong>: File di configurazione delle dipendenze del progetto.</li>
+</ul>
+<h2>Componenti Angular</h2>
+<h3>Creazione di un Componente</h3>
+<pre><code class="language-shell">ng generate component nome-componente
+</code></pre>
+<h3>Struttura di un Componente</h3>
+<p>Un componente Angular è costituito da tre file principali:</p>
+<ul>
+<li><strong>nome-componente.component.ts</strong>: Contiene la logica del componente.</li>
+<li><strong>nome-componente.component.html</strong>: Contiene il template HTML del componente.</li>
+<li><strong>nome-componente.component.css</strong>: Contiene gli stili CSS del componente.</li>
+</ul>
+<h2>Data Binding in Angular</h2>
+<h3>One-Way Data Binding</h3>
+<p>Permette di legare i dati dal modello alla vista.</p>
+<pre><code class="language-html">&lt;p&gt;{ messaggio }&lt;/p&gt;
+</code></pre>
+<h3>Two-Way Data Binding</h3>
+<p>Permette di legare i dati bidirezionalmente tra il modello e la vista utilizzando <code>ngModel</code>.</p>
+<pre><code class="language-html">&lt;input [(ngModel)]=&quot;nome&quot;&gt;
+&lt;p&gt;Ciao, { nome }!&lt;/p&gt;
+</code></pre>
+<h2>Directives</h2>
+<p>Le directives estendono il comportamento degli elementi del DOM.</p>
+<h3>Structural Directives</h3>
+<p>Modificano la struttura del DOM aggiungendo o rimuovendo elementi.</p>
+<pre><code class="language-html">&lt;div *ngIf=&quot;isVisible&quot;&gt;Questo elemento è visibile&lt;/div&gt;
+</code></pre>
+<h3>Attribute Directives</h3>
+<p>Modificano l'aspetto o il comportamento degli elementi esistenti.</p>
+<pre><code class="language-html">&lt;div [ngClass]=&quot;{ 'classe-attiva': isActive }&quot;&gt;Elemento con classe condizionale&lt;/div&gt;
+</code></pre>
+<h2>Servizi e Dependency Injection</h2>
+<p>I servizi condividono dati o logica tra diversi componenti.</p>
+<h3>Creazione di un Servizio</h3>
+<pre><code class="language-shell">ng generate service nome-servizio
+</code></pre>
+<h3>Utilizzo di un Servizio in un Componente</h3>
+<pre><code class="language-typescript">import { NomeServizio } from './nome-servizio.service';
+
+@Component({
+  selector: 'app-nome-componente',
+  templateUrl: './nome-componente.component.html',
+  styleUrls: ['./nome-componente.component.css']
+})
+export class NomeComponente {
+  constructor(private nomeServizio: NomeServizio) {}
+}
+</code></pre>
+<h2>Routing in Angular</h2>
+<h3>Configurazione del Routing</h3>
+<p>Definisci le rotte dell'applicazione nel modulo di routing.</p>
+<pre><code class="language-typescript">import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+</code></pre>
+<h3>Utilizzo del Router</h3>
+<p>Naviga tra le viste utilizzando il routerLink.</p>
+<pre><code class="language-html">&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;
+&lt;a routerLink=&quot;/about&quot;&gt;About&lt;/a&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+</code></pre>
+<h2>Testing in Angular</h2>
+<h3>Test di Unità</h3>
+<p>Angular supporta i test di unità utilizzando Karma e Jasmine.</p>
+<h3>Test End-to-End</h3>
+<p>I test end-to-end (E2E) sono supportati utilizzando Protractor.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card" id="card-unix">
+                            <div class="card-body">
+                                <h1 id="unix">UNIX</h2>
+                                <div class="card-text">
+                                    <h2>Introduzione a Unix</h2>
+<p>Unix è un sistema operativo potente e versatile, utilizzato prevalentemente nei server e nei sistemi avanzati. Sviluppato originariamente negli anni '70, Unix ha influenzato molti altri sistemi operativi, inclusi Linux e macOS. Unix è noto per la sua stabilità, sicurezza e un ambiente di sviluppo robusto.</p>
+<h2>Caratteristiche Principali</h2>
+<h3>Multiutente</h3>
+<p>Unix supporta più utenti contemporaneamente, permettendo l'accesso simultaneo e la condivisione delle risorse del sistema senza interferenze tra gli utenti.</p>
+<h3>Multitasking</h3>
+<p>Unix può eseguire più processi contemporaneamente, permettendo di gestire numerose operazioni e applicazioni allo stesso tempo.</p>
+<h3>Sicurezza</h3>
+<p>Unix offre un sistema di permessi robusto che protegge i file e le risorse del sistema da accessi non autorizzati.</p>
+<h3>Portabilità</h3>
+<p>Unix è altamente portabile, permettendo di essere eseguito su una vasta gamma di hardware, dai microcomputer ai supercomputer.</p>
+<h2>Shell di Unix</h2>
+<p>La shell è un'interfaccia a riga di comando che permette agli utenti di interagire con il sistema operativo. Alcune delle shell più comuni includono:</p>
+<ul>
+<li><strong>Bash (Bourne Again Shell)</strong></li>
+<li><strong>Zsh (Z Shell)</strong></li>
+<li><strong>Ksh (Korn Shell)</strong></li>
+<li><strong>Tcsh (TENEX C Shell)</strong></li>
+</ul>
+<h2>Componenti di un Sistema Unix</h2>
+<p>Un sistema Unix è composto da varie componenti essenziali, ognuna delle quali svolge un ruolo cruciale nel funzionamento del sistema. Di seguito, esploreremo ciascuna di queste componenti in dettaglio.</p>
+<h3>Bootloader</h3>
+<p>Il bootloader è il processo che entra in esecuzione ogni volta che il dispositivo viene acceso e si preoccupa di effettuare tutte le azioni necessarie per avviare il sistema operativo. Se sul PC sono installati due sistemi operativi, il bootloader permette di scegliere tra i due.</p>
+<h3>Kernel</h3>
+<p>Il kernel è il cuore pulsante del sistema Unix. Esso consente ai processi in esecuzione di accedere in modo sicuro e controllato all'hardware. Le applicazioni interagiscono con il kernel per funzionare, ottenendo l'accesso alle risorse hardware come il processore, la memoria e i dispositivi di input/output.</p>
+<h3>Shell</h3>
+<p>La shell, detta anche linea di comando, è l'interfaccia utente più esterna del sistema. Permette agli utenti di interagire con il kernel tramite comandi testuali. Esistono diverse shell, tra cui Bash, Zsh, e Tcsh, ognuna con le proprie caratteristiche e funzionalità.</p>
+<h3>Daemons</h3>
+<p>I daemons sono processi che girano in background, non sotto il controllo diretto dell'utente, e vengono attivati al verificarsi di determinati eventi. Solitamente vengono eseguiti a partire dall'avvio del sistema per attivare servizi essenziali come scheduling, gestione del suono e altri servizi di sistema.</p>
+<h3>Server Grafico</h3>
+<p>Il server grafico è responsabile della visualizzazione dell'interfaccia grafica sul monitor. Disegna il desktop e gestisce le finestre delle applicazioni. In Unix, il server grafico più comune è il Server X.</p>
+<h3>Desktop Environment</h3>
+<p>Il desktop environment gestisce il tema e rende l'interfaccia grafica accattivante. Sebbene l'uso della linea di comando sia una caratteristica affascinante di Unix, l'interfaccia grafica ha reso Unix popolare anche tra gli utenti meno esperti. Alcuni dei desktop environment più diffusi includono KDE, GNOME, Cinnamon, e MATE.</p>
+<h2>Comandi di Base di Unix</h2>
+<h3>Navigazione del File System</h3>
+<ul>
+<li>
+<p><strong>pwd (Print Working Directory)</strong>: Mostra la directory corrente.
+<code>shell pwd </code></p>
+</li>
+<li>
+<p><strong>ls (List)</strong>: Elenca i file e le directory.
+<code>shell ls </code></p>
+</li>
+<li>
+<p><strong>cd (Change Directory)</strong>: Cambia la directory corrente.
+<code>shell cd /percorso/della/directory </code></p>
+</li>
+</ul>
+<h3>Gestione dei File</h3>
+<ul>
+<li>
+<p><strong>touch</strong>: Crea un nuovo file vuoto.
+<code>shell touch nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>cp (Copy)</strong>: Copia file o directory.
+<code>shell cp origine.txt destinazione.txt </code></p>
+</li>
+<li>
+<p><strong>mv (Move)</strong>: Sposta o rinomina file o directory.
+<code>shell mv vecchionome.txt nuovonome.txt </code></p>
+</li>
+<li>
+<p><strong>rm (Remove)</strong>: Rimuove file o directory.
+<code>shell rm nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>mkdir (Make Directory)</strong>: Crea una nuova directory.
+<code>shell mkdir nuovadirectory </code></p>
+</li>
+<li>
+<p><strong>rmdir (Remove Directory)</strong>: Rimuove una directory vuota.
+<code>shell rmdir nomedirectory </code></p>
+</li>
+</ul>
+<h3>Visualizzazione e Modifica dei File</h3>
+<ul>
+<li>
+<p><strong>cat (Concatenate)</strong>: Visualizza il contenuto di un file.
+<code>shell cat nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>less</strong>: Visualizza il contenuto di un file una pagina alla volta.
+<code>shell less nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>head</strong>: Mostra le prime righe di un file.
+<code>shell head nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>tail</strong>: Mostra le ultime righe di un file.
+<code>shell tail nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>nano</strong>: Un editor di testo semplice per la modifica dei file.
+<code>shell nano nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>vi/vim</strong>: Un potente editor di testo per la modifica avanzata dei file.
+<code>shell vi nomefile.txt </code></p>
+</li>
+</ul>
+<h3>Gestione dei Processi</h3>
+<ul>
+<li>
+<p><strong>ps (Process Status)</strong>: Mostra una lista dei processi attualmente in esecuzione.
+<code>shell ps </code></p>
+</li>
+<li>
+<p><strong>top</strong>: Mostra i processi attualmente in esecuzione in tempo reale.
+<code>shell top </code></p>
+</li>
+<li>
+<p><strong>kill</strong>: Termina un processo specifico.
+<code>shell kill PID </code></p>
+</li>
+<li>
+<p><strong>killall</strong>: Termina tutti i processi con un dato nome.
+<code>shell killall nomeprocesso </code></p>
+</li>
+</ul>
+<h3>Permessi dei File</h3>
+<ul>
+<li>
+<p><strong>chmod (Change Mode)</strong>: Modifica i permessi dei file o delle directory.
+<code>shell chmod 755 nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>chown (Change Owner)</strong>: Modifica il proprietario di un file o di una directory.
+<code>shell chown utente:gruppo nomefile.txt </code></p>
+</li>
+<li>
+<p><strong>chgrp (Change Group)</strong>: Modifica il gruppo proprietario di un file o di una directory.
+<code>shell chgrp gruppo nomefile.txt </code></p>
+</li>
+</ul>
+<h3>Networking</h3>
+<ul>
+<li>
+<p><strong>ping</strong>: Verifica la connettività di rete con un host.
+<code>shell ping www.google.com </code></p>
+</li>
+<li>
+<p><strong>ifconfig</strong>: Configura le interfacce di rete.
+<code>shell ifconfig </code></p>
+</li>
+<li>
+<p><strong>netstat</strong>: Mostra le connessioni di rete, le tabelle di routing e altro.
+<code>shell netstat </code></p>
+</li>
+</ul>
+<h3>Shell Scripting</h3>
+<p>I shell script sono file che contengono una serie di comandi che possono essere eseguiti in sequenza. Sono utili per automatizzare compiti ripetitivi.</p>
+<p><code>shell #!/bin/bash echo &quot;Ciao, mondo!&quot; </code></p>
+<h3>Esecuzione di uno Script</h3>
+<p>Rendi lo script eseguibile e poi eseguilo.</p>
+<p><code>shell chmod +x script.sh ./script.sh </code></p>
+<h2>Strumenti e Utilità di Unix</h2>
+<h3>Cron</h3>
+<p>Cron è un demone che permette di eseguire comandi o script a intervalli di tempo regolari.</p>
+<h3>SSH (Secure Shell)</h3>
+<p>SSH è un protocollo per la connessione sicura a macchine remote.</p>
+<h3>Tar</h3>
+<p>Tar è un'utilità per archiviare file e directory.</p>
+<h3>Grep</h3>
+<p>Grep è un comando per cercare stringhe all'interno di file.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card" id="card-devops">
+                            <div class="card-body">
+                                <h1 id="devops">DEVOPS</h2>
+                                <div class="card-text">
+                                    <h2>Introduzione</h2>
+<p>Il ruolo del DevOps Engineer è cruciale nelle moderne organizzazioni IT. Questo capitolo esplorerà in dettaglio le competenze, le pratiche, gli strumenti e le responsabilità chiave di un DevOps Engineer. Comprendere questi elementi è essenziale per chiunque voglia intraprendere una carriera in questo campo.</p>
+<h2>Competenze Chiave</h2>
+<h3>Competenze Tecniche</h3>
+<ol>
+<li><strong>Sistemi Operativi</strong>: Conoscenza approfondita di Unix/Linux e Windows.</li>
+<li><strong>Networking</strong>: Comprendere protocolli di rete, subnetting, VPN, firewall, DNS, ecc.</li>
+<li><strong>Programmazione e Scripting</strong>: Conoscenza di linguaggi come Python, Ruby, Bash, e PowerShell.</li>
+<li><strong>Gestione dei Database</strong>: Capacità di amministrare e configurare database SQL e NoSQL.</li>
+<li><strong>Sicurezza Informatica</strong>: Conoscenza delle pratiche di sicurezza, gestione dei certificati, crittografia e gestione dei segreti.</li>
+<li><strong>Containerizzazione</strong>: Esperienza con Docker e orchestratori come Kubernetes.</li>
+<li><strong>Strumenti CI/CD</strong>: Padronanza di strumenti come Jenkins, GitLab CI/CD, CircleCI, Travis CI.</li>
+<li><strong>Cloud Computing</strong>: Esperienza con AWS, Azure, Google Cloud Platform.</li>
+<li><strong>Automazione e Configurazione</strong>: Conoscenza di Ansible, Puppet, Chef, Terraform.</li>
+</ol>
+<h3>Competenze Non Tecniche</h3>
+<ol>
+<li><strong>Collaborazione</strong>: Capacità di lavorare efficacemente con team di sviluppo e operazioni.</li>
+<li><strong>Risoluzione dei Problemi</strong>: Abilità nel diagnosticare e risolvere rapidamente i problemi.</li>
+<li><strong>Gestione del Tempo</strong>: Capacità di gestire più attività e progetti contemporaneamente.</li>
+<li><strong>Comunicazione</strong>: Abilità nel comunicare chiaramente con team tecnici e non tecnici.</li>
+<li><strong>Pensiero Critico</strong>: Capacità di analizzare situazioni complesse e prendere decisioni informate.</li>
+</ol>
+<h2>Pratiche e Metodologie DevOps</h2>
+<h3>Integrazione Continua (CI)</h3>
+<p>L'integrazione continua è la pratica di integrare frequentemente il codice nel repository principale. Include:</p>
+<ul>
+<li><strong>Build Automation</strong>: Automatizzare il processo di build del software.</li>
+<li><strong>Test Automation</strong>: Eseguire test automatici per garantire la qualità del codice.</li>
+<li><strong>Code Review</strong>: Revisione del codice tramite pull request per mantenere standard di qualità.</li>
+</ul>
+<h3>Distribuzione Continua (CD)</h3>
+<p>La distribuzione continua estende la CI automatizzando il deployment del software:</p>
+<ul>
+<li><strong>Pipeline di Deploy</strong>: Creare pipeline CI/CD per gestire il flusso di build, test e deployment.</li>
+<li><strong>Blue-Green Deployment</strong>: Tecnica di deployment che riduce al minimo i tempi di inattività.</li>
+<li><strong>Canary Releases</strong>: Rilasciare nuove funzionalità a un sottoinsieme di utenti per testarle prima del rilascio completo.</li>
+</ul>
+<h3>Infrastructure as Code (IaC)</h3>
+<p>Gestire l'infrastruttura tramite codice:</p>
+<ul>
+<li><strong>Terraform</strong>: Strumento per la gestione dell'infrastruttura cloud.</li>
+<li><strong>Ansible, Chef, Puppet</strong>: Strumenti per la gestione della configurazione e l'automazione delle attività.</li>
+</ul>
+<h3>Monitoraggio e Logging</h3>
+<p>Monitorare e analizzare le performance e il comportamento delle applicazioni:</p>
+<ul>
+<li><strong>Prometheus &amp; Grafana</strong>: Monitoraggio e visualizzazione delle metriche.</li>
+<li><strong>ELK Stack (Elasticsearch, Logstash, Kibana)</strong>: Raccolta, analisi e visualizzazione dei log.</li>
+<li><strong>Splunk</strong>: Analisi e visualizzazione avanzata dei dati di log.</li>
+</ul>
+<h3>Sicurezza e Compliance</h3>
+<p>Incorporare la sicurezza nel ciclo di vita dello sviluppo software:</p>
+<ul>
+<li><strong>DevSecOps</strong>: Integrare pratiche di sicurezza nelle pipeline CI/CD.</li>
+<li><strong>Gestione dei Segreti</strong>: Utilizzare strumenti come HashiCorp Vault per gestire le credenziali in modo sicuro.</li>
+<li><strong>Compliance</strong>: Garantire che l'infrastruttura e le applicazioni rispettino le normative e gli standard di sicurezza.</li>
+</ul>
+<h2>Strumenti e Tecnologie DevOps</h2>
+<h3>Sistemi di Versionamento</h3>
+<ul>
+<li><strong>Git</strong>: Strumento di versionamento distribuito.</li>
+<li><strong>GitHub, GitLab, Bitbucket</strong>: Piattaforme di hosting per repository Git.</li>
+</ul>
+<h3>Continuous Integration/Continuous Deployment (CI/CD)</h3>
+<ul>
+<li><strong>Jenkins</strong>: Strumento CI/CD open-source.</li>
+<li><strong>GitLab CI/CD</strong>: Integrazione continua e distribuzione con GitLab.</li>
+<li><strong>CircleCI, Travis CI</strong>: Altri popolari strumenti CI/CD.</li>
+</ul>
+<h3>Containerizzazione e Orchestrazione</h3>
+<ul>
+<li><strong>Docker</strong>: Piattaforma per la containerizzazione.</li>
+<li><strong>Kubernetes</strong>: Orchestratore di container per la gestione di applicazioni containerizzate.</li>
+</ul>
+<h3>Automazione e Configurazione</h3>
+<ul>
+<li><strong>Ansible</strong>: Strumento per l'automazione della configurazione e gestione delle infrastrutture.</li>
+<li><strong>Puppet, Chef</strong>: Altri strumenti per la gestione della configurazione.</li>
+</ul>
+<h3>Monitoraggio e Logging</h3>
+<ul>
+<li><strong>Prometheus</strong>: Sistema di monitoraggio e allarme.</li>
+<li><strong>Grafana</strong>: Piattaforma di visualizzazione per metriche.</li>
+<li><strong>ELK Stack</strong>: Suite di strumenti per la raccolta e l'analisi dei log.</li>
+<li><strong>Splunk</strong>: Strumento per l'analisi dei dati di log.</li>
+</ul>
+<h3>Cloud Computing</h3>
+<ul>
+<li><strong>Amazon Web Services (AWS)</strong>: Piattaforma cloud di Amazon.</li>
+<li><strong>Microsoft Azure</strong>: Piattaforma cloud di Microsoft.</li>
+<li><strong>Google Cloud Platform (GCP)</strong>: Piattaforma cloud di Google.</li>
+</ul>
+<h2>Best Practices DevOps</h2>
+<ol>
+<li><strong>Automatizzare Tutto</strong>: Automazione dei processi per migliorare l'efficienza e ridurre gli errori.</li>
+<li><strong>Cultura della Collaborazione</strong>: Favorire una cultura di collaborazione tra sviluppo e operazioni.</li>
+<li><strong>Monitoraggio Continuo</strong>: Implementare un sistema di monitoraggio continuo per rilevare e risolvere rapidamente i problemi.</li>
+<li><strong>Feedback Rapido</strong>: Fornire feedback rapido agli sviluppatori tramite build e test automatici.</li>
+<li><strong>Integrazione della Sicurezza</strong>: Integrare la sicurezza in ogni fase del ciclo di vita dello sviluppo software.</li>
+<li><strong>Documentazione</strong>: Mantenere una documentazione chiara e aggiornata dei processi e delle configurazioni.</li>
+</ol>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card" id="card-docker">
+                            <div class="card-body">
+                                <h1 id="docker">DOCKER</h2>
+                                <div class="card-text">
+                                    <h2>Introduzione a Docker</h2>
+<p>Docker è una piattaforma di containerizzazione open-source che automatizza il deployment di applicazioni all'interno di container leggeri e portabili. Docker permette agli sviluppatori di creare, distribuire ed eseguire applicazioni in ambienti isolati, garantendo che funzionino in modo coerente su qualsiasi sistema.</p>
+<h2>Concetti Fondamentali di Docker</h2>
+<h3>Container</h3>
+<p>Un container è un'istanza leggera e portabile di un ambiente di runtime che include l'applicazione e tutte le sue dipendenze. I container condividono il kernel del sistema operativo, ma sono isolati l'uno dall'altro.</p>
+<h3>Immagine</h3>
+<p>Un'immagine Docker è un pacchetto immutabile che contiene tutto il necessario per eseguire un'applicazione, inclusi il codice dell'applicazione, le librerie, le dipendenze e il sistema operativo di base. Le immagini sono la base per la creazione dei container.</p>
+<h3>Dockerfile</h3>
+<p>Un Dockerfile è un file di testo con una serie di istruzioni che Docker utilizza per costruire un'immagine. Esso specifica il sistema operativo di base, le dipendenze, i file da includere e i comandi da eseguire.</p>
+<h3>Registri</h3>
+<p>I registri sono repository dove le immagini Docker possono essere memorizzate e distribuite. Docker Hub è il registro pubblico più popolare, ma esistono anche registri privati come Amazon ECR, Google Container Registry e altri.</p>
+<h2>Installazione di Docker</h2>
+<h3>Windows e macOS</h3>
+<ol>
+<li>Scarica Docker Desktop dal sito ufficiale di Docker.</li>
+<li>Esegui il file di installazione e segui le istruzioni.</li>
+<li>Dopo l'installazione, Docker sarà disponibile tramite l'interfaccia grafica e la linea di comando.</li>
+</ol>
+<h3>Linux</h3>
+<ol>
+<li>Aggiorna il gestore di pacchetti:<pre><code class="language-shell">sudo apt-get update
+</code></pre>
+</li>
+<li>Installa i pacchetti necessari:<pre><code class="language-shell">sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+</code></pre>
+</li>
+<li>Aggiungi il repository Docker GPG:<pre><code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre>
+</li>
+<li>Aggiungi il repository Docker APT:<pre><code class="language-shell">sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+</code></pre>
+</li>
+<li>Installa Docker:<pre><code class="language-shell">sudo apt-get update
+sudo apt-get install docker-ce
+</code></pre>
+</li>
+<li>Verifica l'installazione:<pre><code class="language-shell">sudo docker --version
+</code></pre>
+</li>
+</ol>
+<h2>Comandi di Base di Docker</h2>
+<h3>Esecuzione di un Container</h3>
+<p>Il comando <code>docker run</code> crea e avvia un nuovo container.</p>
+<pre><code class="language-shell">docker run hello-world
+</code></pre>
+<h3>Elenco dei Container</h3>
+<p>Il comando <code>docker ps</code> mostra i container in esecuzione.</p>
+<pre><code class="language-shell">docker ps
+</code></pre>
+<p>Il comando <code>docker ps -a</code> mostra tutti i container, inclusi quelli fermati.</p>
+<pre><code class="language-shell">docker ps -a
+</code></pre>
+<h3>Gestione delle Immagini</h3>
+<ul>
+<li><strong>Elenco delle Immagini</strong>: Il comando <code>docker images</code> elenca tutte le immagini disponibili localmente.<pre><code class="language-shell">docker images
+</code></pre>
+</li>
+<li><strong>Rimozione di un'Immagine</strong>: Il comando <code>docker rmi</code> rimuove un'immagine.<pre><code class="language-shell">docker rmi nome-immagine
+</code></pre>
+</li>
+</ul>
+<h3>Costruzione di un'Immagine</h3>
+<p>Il comando <code>docker build</code> costruisce un'immagine da un Dockerfile.</p>
+<pre><code class="language-shell">docker build -t nome-immagine .
+</code></pre>
+<h3>Gestione dei Container</h3>
+<ul>
+<li><strong>Avvio di un Container</strong>: Il comando <code>docker start</code> avvia un container esistente.<pre><code class="language-shell">docker start nome-container
+</code></pre>
+</li>
+<li><strong>Arresto di un Container</strong>: Il comando <code>docker stop</code> arresta un container in esecuzione.<pre><code class="language-shell">docker stop nome-container
+</code></pre>
+</li>
+<li><strong>Rimozione di un Container</strong>: Il comando <code>docker rm</code> rimuove un container.<pre><code class="language-shell">docker rm nome-container
+</code></pre>
+</li>
+</ul>
+<h2>Dockerfile</h2>
+<h3>Struttura di un Dockerfile</h3>
+<p>Un Dockerfile contiene una serie di istruzioni che definiscono come costruire un'immagine Docker.</p>
+<p>Esempio di Dockerfile:</p>
+<pre><code class="language-dockerfile"># Utilizza un'immagine di base
+FROM ubuntu:latest
+
+# Imposta il maintainer dell'immagine
+LABEL maintainer=&quot;tuoemail@example.com&quot;
+
+# Installa le dipendenze
+RUN apt-get update &amp;&amp; apt-get install -y nginx
+
+# Copia i file nella directory di lavoro
+COPY . /usr/share/nginx/html
+
+# Espone la porta
+EXPOSE 80
+
+# Comando per avviare il server Nginx
+CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+</code></pre>
+<h3>Costruzione di un'Immagine da un Dockerfile</h3>
+<pre><code class="language-shell">docker build -t nome-immagine .
+</code></pre>
+<h2>Docker Compose</h2>
+<p>Docker Compose è uno strumento per definire ed eseguire applicazioni Docker multi-container. Utilizza un file YAML per configurare i servizi dell'applicazione.</p>
+<h3>Installazione di Docker Compose</h3>
+<p>Docker Compose è incluso in Docker Desktop per Windows e macOS. Su Linux, può essere installato tramite pip:</p>
+<pre><code class="language-shell">sudo apt-get install python3-pip
+sudo pip3 install docker-compose
+</code></pre>
+<h3>File docker-compose.yml</h3>
+<p>Esempio di file <code>docker-compose.yml</code>:</p>
+<pre><code class="language-yaml">version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - &quot;80:80&quot;
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: esempio
+</code></pre>
+<h3>Utilizzo di Docker Compose</h3>
+<ul>
+<li><strong>Avvio dei Servizi</strong>: Il comando <code>docker-compose up</code> avvia tutti i servizi definiti nel file <code>docker-compose.yml</code>.<pre><code class="language-shell">docker-compose up
+</code></pre>
+</li>
+<li><strong>Arresto dei Servizi</strong>: Il comando <code>docker-compose down</code> arresta e rimuove tutti i container, le reti e i volumi creati da <code>docker-compose up</code>.<pre><code class="language-shell">docker-compose down
+</code></pre>
+</li>
+</ul>
+<h2>Best Practices per l'Uso di Docker</h2>
+<ol>
+<li><strong>Utilizzare Immagini Ufficiali e Minimali</strong>: Utilizzare immagini ufficiali e minimali per ridurre la superficie di attacco e migliorare la sicurezza.</li>
+<li><strong>Gestione dei Segreti</strong>: Utilizzare strumenti come Docker Secrets per gestire le credenziali in modo sicuro.</li>
+<li><strong>Monitoraggio e Logging</strong>: Implementare strumenti di monitoraggio e logging per tracciare le performance e il comportamento dei container.</li>
+<li><strong>Network Segmentation</strong>: Utilizzare reti Docker per isolare i container e limitare l'accesso non autorizzato.</li>
+<li><strong>Scansione delle Immagini</strong>: Utilizzare strumenti di scansione delle immagini per rilevare vulnerabilità e garantire la sicurezza.</li>
+</ol>
 
                                 </div>
                             </div>
@@ -1231,6 +1821,14 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
     <li class="list-group-item"><a id="nav-item-spring" href="#card-spring">SPRING</a></li>
 
     <li class="list-group-item"><a id="nav-item-git" href="#card-git">GIT</a></li>
+
+    <li class="list-group-item"><a id="nav-item-angular" href="#card-angular">ANGULAR</a></li>
+
+    <li class="list-group-item"><a id="nav-item-unix" href="#card-unix">UNIX</a></li>
+
+    <li class="list-group-item"><a id="nav-item-devops" href="#card-devops">DEVOPS</a></li>
+
+    <li class="list-group-item"><a id="nav-item-docker" href="#card-docker">DOCKER</a></li>
 
 
                         </ul>
@@ -1301,7 +1899,6 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
                     "#B565A7", // Pastel Purple
                     "#DD4124", // Pastel Orange
                     "#45B8AC", // Pastel Mint
-                    "#EFC050", // Pastel Gold
                     "#5B5EA6", // Pastel Indigo
                     "#9B2335", // Pastel Burgundy
                     "#DFCFBE", // Pastel Beige
@@ -1313,7 +1910,7 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
                 const chapterCards = document.querySelectorAll('.chapter-card');
                 chapterCards.forEach((card, index) => {
                     const color = colors[index % colors.length];
-                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, b, strong');
+                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, h4, b, strong');
                     headingsAndBold.forEach(element => {
                         element.style.color = color;
                     });

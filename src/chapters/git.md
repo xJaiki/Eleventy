@@ -111,6 +111,3 @@ Bitbucket è una piattaforma di hosting per repository Git con un forte focus su
 - **git checkout**: Passa a un altro branch o ripristina file specifici.
 - **git fetch**: Recupera le modifiche dal repository remoto senza unirle.
 - **git rebase**: Riapplica i commit da un branch su un altro.
-
-## Conclusione
-Questa sezione copre le basi di Git, inclusi i concetti fondamentali, il flusso di lavoro di base, la gestione dei conflitti e le piattaforme di hosting. Nei prossimi capitoli, esploreremo in dettaglio le tecniche avanzate di utilizzo di Git e le best practices per la gestione del codice sorgente.

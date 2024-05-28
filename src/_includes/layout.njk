@@ -54,6 +54,10 @@
                 font-weight: 400;
                 font-size: 1.5rem;
             }
+            h4 {
+                font-weight: 300;
+                font-size: 1.2rem;
+            }
             .btn-primary {
                 background-color: #222831;
                 border-color: #222831;
@@ -295,7 +299,6 @@
                     "#B565A7", // Pastel Purple
                     "#DD4124", // Pastel Orange
                     "#45B8AC", // Pastel Mint
-                    "#EFC050", // Pastel Gold
                     "#5B5EA6", // Pastel Indigo
                     "#9B2335", // Pastel Burgundy
                     "#DFCFBE", // Pastel Beige
@@ -307,7 +310,7 @@
                 const chapterCards = document.querySelectorAll('.chapter-card');
                 chapterCards.forEach((card, index) => {
                     const color = colors[index % colors.length];
-                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, b, strong');
+                    const headingsAndBold = card.querySelectorAll('h1, h2, h3, h4, b, strong');
                     headingsAndBold.forEach(element => {
                         element.style.color = color;
                     });

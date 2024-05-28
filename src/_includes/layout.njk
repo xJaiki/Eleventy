@@ -44,20 +44,29 @@
             h1 {
                 font-weight: 700;
                 text-decoration: underline dotted;
+                font-size: 2.5rem;
             }
-            .btn-primary{
+            h2 {
+                font-weight: 500;
+                font-size: 1.7rem;
+            }
+            h3 {
+                font-weight: 400;
+                font-size: 1.5rem;
+            }
+            .btn-primary {
                 background-color: #222831;
                 border-color: #222831;
             }
-            .btn-primary:hover{
+            .btn-primary:hover {
                 background-color: #393e46;
                 border-color: #393e46;
             }
-            .btn-primary:focus{
+            .btn-primary:focus {
                 background-color: #393e46;
                 border-color: #393e46;
             }
-            .btn-primary:active{
+            .btn-primary:active {
                 background-color: #17191c !important;
                 border-color: #17191c !important;
             }
@@ -89,8 +98,11 @@
                 margin-bottom: 20px;
             }
             .highlight {
-                background: yellow;
-                font-weight: bold;
+                background-color: rgba(0, 123, 255, 0.25);
+                color: #fff !important;
+                border-radius: 5px;
+                padding: 5px;
+                margin: 5px;
             }
             .btn-scroll {
                 background: #222831;
@@ -127,9 +139,43 @@
                         </ul>
                     </div>
                     <button class="btn btn-primary" aria-current="page" id="infoButton">Info</button>
+                    <button class="btn btn-primary ms-2" id="generatePdfButton">Genera PDF</button>
+                    <button class="btn btn-primary ms-2" id="translate">Traduci</button>
                 </div>
             </nav>
         </header>
+        <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pdfModalLabel">Seleziona i capitoli</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="pdfForm">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="all" id="selectAll" checked>
+                                <label class="form-check-label" for="selectAll">
+                                    Seleziona tutti
+                                </label>
+                            </div>
+                            {% for chapter in collections.chapters %}
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="{{ chapter.data.title | slug }}" id="{{ chapter.data.title | slug }}" checked>
+                                    <label class="form-check-label" for="{{ chapter.data.title | slug }}">
+                                        {{ chapter.data.title }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        <button type="button" class="btn btn-primary" id="downloadPdfButton">Scarica PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -138,11 +184,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Questa guida e' stata creata con <a href="https://www.11ty.dev/">Eleventy</a> e <a
-                                href="https://getbootstrap.com/">Bootstrap</a>.</p>
+                        <p>Questa guida e' stata creata con
+                            <a href="https://www.11ty.dev/">Eleventy</a>
+                            e
+                            <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
                         <p>La guida e' in continuo aggiornamento e miglioramento</p>
-                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla <a href="https://github.com/xjaiki">repository</a> , aggiungendo un capitolo o
-                            migliorando uno esistente.</p>
+                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla
+                            <a href="https://github.com/xjaiki">repository</a>
+                            , aggiungendo un capitolo o
+                                                        migliorando uno esistente.</p>
                         <p>Trovi tutte le informazioni sul readme del progetto!</p>
                     </div>
                     <div class="modal-footer">
@@ -160,7 +210,7 @@
             <div class="row">
                 <div class="col-md-8">
                     {% for chapter in collections.chapters %}
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-{{ chapter.data.title | slug }}">
                             <div class="card-body">
                                 <h1 id="{{ chapter.data.title | slug }}">{{ chapter.data.title }}</h2>
                                 <div class="card-text">
@@ -182,6 +232,7 @@
                 </aside>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -192,28 +243,28 @@
                 button.className = 'btn btn-primary btn-sm float-end';
                 button.textContent = 'Copia';
                 button.addEventListener('click', function () {
-                    navigator.clipboard.writeText(pre.textContent).then(function () {
-                        button.textContent = 'Copiato!';
-                        setTimeout(function () {
-                            button.textContent = 'Copia';
-                        }, 2000);
-                    });
+                button.textContent = '';
+                    navigator
+                        .clipboard
+                        .writeText(pre.textContent)
+                        .then(function () {
+                            button.textContent = 'Copiato!';
+                            setTimeout(function () {
+                                button.textContent = 'Copia';
+                            }, 2000);
+                        });
                 });
                 pre.appendChild(button);
             });
-
             const easterEggBtn = document.getElementById('easterEggBtn');
             easterEggBtn.addEventListener('click', function () {
                 location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
             });
-
             const infoButton = document.getElementById('infoButton');
             const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
             infoButton.addEventListener('click', function () {
                 infoModal.show();
             });
-
-
             if (window.innerWidth < 768) {
                 const navbar = document.querySelector('.navbar-nav');
                 const aside = document.querySelector('aside');
@@ -261,7 +312,113 @@
                         element.style.color = color;
                     });
                 });
+                const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
+                const generatePdfButton = document.getElementById('generatePdfButton');
+                const downloadPdfButton = document.getElementById('downloadPdfButton');
+                const chapterCheckboxes = document.querySelectorAll('.chapter-checkbox');
+                const selectAll = document.getElementById('selectAll');
+                generatePdfButton.addEventListener('click', function () {
+                    pdfModal.show();
+                });
+                selectAll.addEventListener('change', function () {
+                    chapterCheckboxes.forEach(checkbox => {
+                        checkbox.checked = selectAll.checked;
+                    });
+                });
+                downloadPdfButton.addEventListener('click', function () {
+                    const {jsPDF} = window.jspdf;
+                    const doc = new jsPDF();
+                    let pageHeight = doc
+                        .internal
+                        .pageSize
+                        .height;
+                    let cursorY = 10;
+                    const addText = (text, fontSize, color) => {
+                        doc.setFontSize(fontSize);
+                        doc.setTextColor(color);
+                        let lines = doc.splitTextToSize(text, 180);
+                        let lineHeight = fontSize * 0.3528;
+                        lines.forEach(line => {
+                            if (cursorY + lineHeight > pageHeight - 10) {
+                                doc.addPage();
+                                cursorY = 10;
+                            }
+                            doc.text(line, 10, cursorY);
+                            cursorY += lineHeight;
+                        });
+                    };
+                    chapterCheckboxes.forEach((checkbox, index) => {
+                        if (checkbox.checked) {
+                            const card = document.getElementById(`card-${
+                                checkbox.value
+                            }`);
+                            const title = card.querySelector('h1').textContent;
+                            const contentElements = card.querySelectorAll('.card-text > *');
+                            const color = window.getComputedStyle(card.querySelector('h1')).color;
+                            if (index > 0) {
+                                doc.addPage();
+                                cursorY = 10;
+                            }
+                            // Add title
+                            addText(title, 16, color);
+                            // Add content
+                            contentElements.forEach(element => {
+                                let elementText = element.textContent;
+                                let tagName = element.tagName.toLowerCase();
+                                let elementColor = window.getComputedStyle(element).color;
+                                switch (tagName) {
+                                    case 'p': addText(elementText, 12, elementColor);
+                                        break;
+                                    case 'pre':
+                                        let code = element.innerText;
+                                        if (cursorY + 60 > pageHeight - 10) {
+                                            doc.addPage();
+                                            cursorY = 10;
+                                        }
+                                        doc.setFontSize(10);
+                                        doc.setTextColor('#000000');
+                                        doc.setFillColor(240, 240, 240);
+                                        doc.rect(10, cursorY, 190, 60, 'F');
+                                        doc.text(doc.splitTextToSize(code, 180), 10, cursorY + 5);
+                                        cursorY += 65;
+                                        break;
+                                    case 'h2':
+                                    case 'h3':
+                                    case 'h4':
+                                    case 'h5':
+                                    case 'h6': addText(elementText, 14, elementColor);
+                                        break;
+                                    case 'b':
+                                    case 'strong': addText(elementText, 12, elementColor);
+                                        break;
+                                    default: addText(elementText, 12, elementColor);
+                                        break;
+                                }
+                            });
+                        }
+                    });
+                    doc.save('bibbia-junior-dev.pdf');
+                    pdfModal.hide();
+                });
             });
+                    
+        </script>
+        <script>
+            console.log(
+                `%c
+                                                        \n\
+                  _/            _/  _/        _/        \n\
+                 _/    _/_/_/      _/  _/               \n\
+                _/  _/    _/  _/  _/_/      _/          \n\
+         _/    _/  _/    _/  _/  _/  _/    _/           \n\
+          _/_/      _/_/_/  _/  _/    _/  _/            \n\
+                                                        \n\
+`,
+                "background: #133337; color: #ccc; font-size: 15px;padding: 1px;font-family: monospace;"
+            );
+            console.log(
+                "%c             Why are you here? 🤠👍              ", "background: #133337; color: #ccc; font-size: 15px;padding: 15px;font-family: monospace;"
+            );
         </script>
     </body>
 </html>

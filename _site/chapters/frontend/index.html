@@ -44,20 +44,29 @@
             h1 {
                 font-weight: 700;
                 text-decoration: underline dotted;
+                font-size: 2.5rem;
             }
-            .btn-primary{
+            h2 {
+                font-weight: 500;
+                font-size: 1.7rem;
+            }
+            h3 {
+                font-weight: 400;
+                font-size: 1.5rem;
+            }
+            .btn-primary {
                 background-color: #222831;
                 border-color: #222831;
             }
-            .btn-primary:hover{
+            .btn-primary:hover {
                 background-color: #393e46;
                 border-color: #393e46;
             }
-            .btn-primary:focus{
+            .btn-primary:focus {
                 background-color: #393e46;
                 border-color: #393e46;
             }
-            .btn-primary:active{
+            .btn-primary:active {
                 background-color: #17191c !important;
                 border-color: #17191c !important;
             }
@@ -89,8 +98,11 @@
                 margin-bottom: 20px;
             }
             .highlight {
-                background: yellow;
-                font-weight: bold;
+                background-color: rgba(0, 123, 255, 0.25);
+                color: #fff !important;
+                border-radius: 5px;
+                padding: 5px;
+                margin: 5px;
             }
             .btn-scroll {
                 background: #222831;
@@ -127,9 +139,85 @@
                         </ul>
                     </div>
                     <button class="btn btn-primary" aria-current="page" id="infoButton">Info</button>
+                    <button class="btn btn-primary ms-2" id="generatePdfButton">Genera PDF</button>
+                    <button class="btn btn-primary ms-2" id="translate">Traduci</button>
                 </div>
             </nav>
         </header>
+        <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pdfModalLabel">Seleziona i capitoli</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="pdfForm">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="all" id="selectAll" checked>
+                                <label class="form-check-label" for="selectAll">
+                                    Seleziona tutti
+                                </label>
+                            </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="introduzione" id="introduzione" checked>
+                                    <label class="form-check-label" for="introduzione">
+                                        INTRODUZIONE
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="back-end-base-knowledge" id="back-end-base-knowledge" checked>
+                                    <label class="form-check-label" for="back-end-base-knowledge">
+                                        BACK-END BASE KNOWLEDGE
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="java" id="java" checked>
+                                    <label class="form-check-label" for="java">
+                                        JAVA
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="mysql" id="mysql" checked>
+                                    <label class="form-check-label" for="mysql">
+                                        MYSQL
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="database" id="database" checked>
+                                    <label class="form-check-label" for="database">
+                                        DATABASE
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="spring" id="spring" checked>
+                                    <label class="form-check-label" for="spring">
+                                        SPRING
+                                    </label>
+                                </div>
+                            
+                                <div class="form-check">
+                                    <input class="form-check-input chapter-checkbox" type="checkbox" value="git" id="git" checked>
+                                    <label class="form-check-label" for="git">
+                                        GIT
+                                    </label>
+                                </div>
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        <button type="button" class="btn btn-primary" id="downloadPdfButton">Scarica PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -138,11 +226,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Questa guida e' stata creata con <a href="https://www.11ty.dev/">Eleventy</a> e <a
-                                href="https://getbootstrap.com/">Bootstrap</a>.</p>
+                        <p>Questa guida e' stata creata con
+                            <a href="https://www.11ty.dev/">Eleventy</a>
+                            e
+                            <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
                         <p>La guida e' in continuo aggiornamento e miglioramento</p>
-                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla <a href="https://github.com/xjaiki">repository</a> , aggiungendo un capitolo o
-                            migliorando uno esistente.</p>
+                        <p>Se manca qualcosa o vuoi contribuire, puoi farlo aprendo una PR sulla
+                            <a href="https://github.com/xjaiki">repository</a>
+                            , aggiungendo un capitolo o
+                                                        migliorando uno esistente.</p>
                         <p>Trovi tutte le informazioni sul readme del progetto!</p>
                     </div>
                     <div class="modal-footer">
@@ -160,7 +252,31 @@
             <div class="row">
                 <div class="col-md-8">
                     
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-introduzione">
+                            <div class="card-body">
+                                <h1 id="introduzione">INTRODUZIONE</h2>
+                                <div class="card-text">
+                                    <h2>Benvenuto!</h2>
+<p>Benvenuto nella Bibbia dell'IT Consulting per Junior Developer! Questo documento è progettato per fornire una guida completa e strutturata per chi sta iniziando il proprio percorso come sviluppatore nel campo dell'IT. La missione di questo documento (oltre a quello mio personale di provare ad usare Eleventy 😜) è aiutarti a costruire solide fondamenta nelle varie aree dello sviluppo software, coprendo i concetti chiave e le tecnologie più utilizzate.</p>
+<h2>Struttura del Documento</h2>
+<p>Questo documento è organizzato in capitoli, ognuno dedicato a un argomento specifico del mondo dello sviluppo software. Ogni capitolo fornisce una panoramica teorica seguita da esempi pratici per consolidare le conoscenze acquisite.</p>
+<h2>Cosa Imparerai</h2>
+<p>In questo documento, esploreremo una vasta gamma di argomenti essenziali per diventare un junior developer competente. Ogni capitolo ti guiderà attraverso i concetti fondamentali, le best practices e gli strumenti più comuni utilizzati nel settore.</p>
+<h2>Link Utili</h2>
+<p>Di seguito troverai alcuni link utili che possono aiutarti nel tuo percorso di apprendimento e crescita professionale:</p>
+<ul>
+<li><strong><a href="https://roadmap.sh/">roadmap.sh</a></strong>: Una raccolta di roadmap interattive per aiutarti a capire cosa e come imparare in diverse aree dello sviluppo software (adesso anche con <em>AI</em>).</li>
+<li><strong><a href="https://www.linkedin.com/">LinkedIn</a></strong>: Una piattaforma professionale per creare il tuo profilo lavorativo, connetterti con altri professionisti e trovare opportunità di lavoro.</li>
+<li><strong><a href="https://code.visualstudio.com/">Visual Studio Code</a></strong>: Un editor di testo gratuito, leggero e potente, ideale per iniziare a programmare.</li>
+<li><strong><a href="https://github.com/">GitHub</a></strong>: Una piattaforma di hosting per progetti Git, utile per uploadare i tuoi progetti.</li>
+<li><strong><a href="https://stackoverflow.com/">Stack Overflow</a></strong>: Una comunità di sviluppatori dove puoi trovare risposte a domande tecniche.</li>
+</ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card mb-4 chapter-card" id="card-back-end-base-knowledge">
                             <div class="card-body">
                                 <h1 id="back-end-base-knowledge">BACK-END BASE KNOWLEDGE</h2>
                                 <div class="card-text">
@@ -308,7 +424,7 @@ Accept: application/json
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-java">
                             <div class="card-body">
                                 <h1 id="java">JAVA</h2>
                                 <div class="card-text">
@@ -560,7 +676,7 @@ class Pig implements Animal {
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-mysql">
                             <div class="card-body">
                                 <h1 id="mysql">MYSQL</h2>
                                 <div class="card-text">
@@ -686,7 +802,7 @@ END;
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-database">
                             <div class="card-body">
                                 <h1 id="database">DATABASE</h2>
                                 <div class="card-text">
@@ -779,7 +895,7 @@ END;
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-spring">
                             <div class="card-body">
                                 <h1 id="spring">SPRING</h2>
                                 <div class="card-text">
@@ -969,7 +1085,7 @@ public class UserServiceTest {
                             </div>
                         </div>
                     
-                        <div class="card mb-4 chapter-card">
+                        <div class="card mb-4 chapter-card" id="card-git">
                             <div class="card-body">
                                 <h1 id="git">GIT</h2>
                                 <div class="card-text">
@@ -1102,17 +1218,19 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
                         </div>
                         <ul class="list-group list-group-flush">
                             
-    <li class="list-group-item"><a href="#back-end-base-knowledge">BACK-END BASE KNOWLEDGE</a></li>
+    <li class="list-group-item"><a id="nav-item-introduzione" href="#card-introduzione">INTRODUZIONE</a></li>
 
-    <li class="list-group-item"><a href="#java">JAVA</a></li>
+    <li class="list-group-item"><a id="nav-item-back-end-base-knowledge" href="#card-back-end-base-knowledge">BACK-END BASE KNOWLEDGE</a></li>
 
-    <li class="list-group-item"><a href="#mysql">MYSQL</a></li>
+    <li class="list-group-item"><a id="nav-item-java" href="#card-java">JAVA</a></li>
 
-    <li class="list-group-item"><a href="#database">DATABASE</a></li>
+    <li class="list-group-item"><a id="nav-item-mysql" href="#card-mysql">MYSQL</a></li>
 
-    <li class="list-group-item"><a href="#spring">SPRING</a></li>
+    <li class="list-group-item"><a id="nav-item-database" href="#card-database">DATABASE</a></li>
 
-    <li class="list-group-item"><a href="#git">GIT</a></li>
+    <li class="list-group-item"><a id="nav-item-spring" href="#card-spring">SPRING</a></li>
+
+    <li class="list-group-item"><a id="nav-item-git" href="#card-git">GIT</a></li>
 
 
                         </ul>
@@ -1120,6 +1238,7 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
                 </aside>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -1130,28 +1249,28 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
                 button.className = 'btn btn-primary btn-sm float-end';
                 button.textContent = 'Copia';
                 button.addEventListener('click', function () {
-                    navigator.clipboard.writeText(pre.textContent).then(function () {
-                        button.textContent = 'Copiato!';
-                        setTimeout(function () {
-                            button.textContent = 'Copia';
-                        }, 2000);
-                    });
+                button.textContent = '';
+                    navigator
+                        .clipboard
+                        .writeText(pre.textContent)
+                        .then(function () {
+                            button.textContent = 'Copiato!';
+                            setTimeout(function () {
+                                button.textContent = 'Copia';
+                            }, 2000);
+                        });
                 });
                 pre.appendChild(button);
             });
-
             const easterEggBtn = document.getElementById('easterEggBtn');
             easterEggBtn.addEventListener('click', function () {
                 location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
             });
-
             const infoButton = document.getElementById('infoButton');
             const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
             infoButton.addEventListener('click', function () {
                 infoModal.show();
             });
-
-
             if (window.innerWidth < 768) {
                 const navbar = document.querySelector('.navbar-nav');
                 const aside = document.querySelector('aside');
@@ -1199,7 +1318,113 @@ git commit -m &quot;Risolto il conflitto nel file X&quot;
                         element.style.color = color;
                     });
                 });
+                const pdfModal = new bootstrap.Modal(document.getElementById('pdfModal'));
+                const generatePdfButton = document.getElementById('generatePdfButton');
+                const downloadPdfButton = document.getElementById('downloadPdfButton');
+                const chapterCheckboxes = document.querySelectorAll('.chapter-checkbox');
+                const selectAll = document.getElementById('selectAll');
+                generatePdfButton.addEventListener('click', function () {
+                    pdfModal.show();
+                });
+                selectAll.addEventListener('change', function () {
+                    chapterCheckboxes.forEach(checkbox => {
+                        checkbox.checked = selectAll.checked;
+                    });
+                });
+                downloadPdfButton.addEventListener('click', function () {
+                    const {jsPDF} = window.jspdf;
+                    const doc = new jsPDF();
+                    let pageHeight = doc
+                        .internal
+                        .pageSize
+                        .height;
+                    let cursorY = 10;
+                    const addText = (text, fontSize, color) => {
+                        doc.setFontSize(fontSize);
+                        doc.setTextColor(color);
+                        let lines = doc.splitTextToSize(text, 180);
+                        let lineHeight = fontSize * 0.3528;
+                        lines.forEach(line => {
+                            if (cursorY + lineHeight > pageHeight - 10) {
+                                doc.addPage();
+                                cursorY = 10;
+                            }
+                            doc.text(line, 10, cursorY);
+                            cursorY += lineHeight;
+                        });
+                    };
+                    chapterCheckboxes.forEach((checkbox, index) => {
+                        if (checkbox.checked) {
+                            const card = document.getElementById(`card-${
+                                checkbox.value
+                            }`);
+                            const title = card.querySelector('h1').textContent;
+                            const contentElements = card.querySelectorAll('.card-text > *');
+                            const color = window.getComputedStyle(card.querySelector('h1')).color;
+                            if (index > 0) {
+                                doc.addPage();
+                                cursorY = 10;
+                            }
+                            // Add title
+                            addText(title, 16, color);
+                            // Add content
+                            contentElements.forEach(element => {
+                                let elementText = element.textContent;
+                                let tagName = element.tagName.toLowerCase();
+                                let elementColor = window.getComputedStyle(element).color;
+                                switch (tagName) {
+                                    case 'p': addText(elementText, 12, elementColor);
+                                        break;
+                                    case 'pre':
+                                        let code = element.innerText;
+                                        if (cursorY + 60 > pageHeight - 10) {
+                                            doc.addPage();
+                                            cursorY = 10;
+                                        }
+                                        doc.setFontSize(10);
+                                        doc.setTextColor('#000000');
+                                        doc.setFillColor(240, 240, 240);
+                                        doc.rect(10, cursorY, 190, 60, 'F');
+                                        doc.text(doc.splitTextToSize(code, 180), 10, cursorY + 5);
+                                        cursorY += 65;
+                                        break;
+                                    case 'h2':
+                                    case 'h3':
+                                    case 'h4':
+                                    case 'h5':
+                                    case 'h6': addText(elementText, 14, elementColor);
+                                        break;
+                                    case 'b':
+                                    case 'strong': addText(elementText, 12, elementColor);
+                                        break;
+                                    default: addText(elementText, 12, elementColor);
+                                        break;
+                                }
+                            });
+                        }
+                    });
+                    doc.save('bibbia-junior-dev.pdf');
+                    pdfModal.hide();
+                });
             });
+                    
+        </script>
+        <script>
+            console.log(
+                `%c
+                                                        \n\
+                  _/            _/  _/        _/        \n\
+                 _/    _/_/_/      _/  _/               \n\
+                _/  _/    _/  _/  _/_/      _/          \n\
+         _/    _/  _/    _/  _/  _/  _/    _/           \n\
+          _/_/      _/_/_/  _/  _/    _/  _/            \n\
+                                                        \n\
+`,
+                "background: #133337; color: #ccc; font-size: 15px;padding: 1px;font-family: monospace;"
+            );
+            console.log(
+                "%c             Why are you here? 🤠👍              ", "background: #133337; color: #ccc; font-size: 15px;padding: 15px;font-family: monospace;"
+            );
         </script>
     </body>
 </html>

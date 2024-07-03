@@ -1,5 +1,5 @@
 ---
-title: MongoDB
+title: MONGODB
 layout: chapter.njk
 ---
 

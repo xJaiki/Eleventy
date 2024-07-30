@@ -1,5 +1,5 @@
 ---
-title: (LLM) Large Language Model
+title: (LLM) LARGE LANGUAGE MODEL
 layout: chapter.njk
 ---
 ## Introduzione ai LLM
